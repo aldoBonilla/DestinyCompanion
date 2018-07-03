@@ -1,0 +1,6 @@
+framework module Pods_Destiny2Api {
+  umbrella header "Pods-Destiny2Api-umbrella.h"
+
+  export *
+  module * { export * }
+}
