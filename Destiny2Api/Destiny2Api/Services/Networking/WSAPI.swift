@@ -17,6 +17,8 @@ typealias EntityDictionary = Dictionary<String, Any?>
 
 let headerApiDestiny = "X-API-Key"
 let destinyApiKey = "aa8ac79909674f1da752313d781f582e"
+let client_Id = 23342
+let clientSecret = "MfeEvEhIrleMWNhSTmlLeQoy0B8Xrs7pPsqh1D3wlYw"
 
 enum webMethod: String {
     case OPTIONS, GET, HEAD, POST, PUT, PATCH, DELETE, TRACE, CONNECT
@@ -26,12 +28,14 @@ enum encoding {
     
     case url
     case json
+    case urlBody
     case multipart
     
     var parameterEncoding: ParameterEncoding {
         switch self {
         case .url: return URLEncoding.default
         case .json: return JSONEncoding.default
+        case .urlBody: return URLEncoding.httpBody
         case .multipart: return MultipartEncoding()
         }
     }
@@ -76,11 +80,6 @@ class WSAPI {
     var manager: NetworkReachabilityManager?
     
     func callService(url: String, method: webMethod, parameters: BasicDictionary?, param_Encoding: ParameterEncoding?, headers: [String: String]? = nil, onCompletion: @escaping((_ response: Data?, _ error: NSError?) -> Void )) {
-        setupReachability()
-        if manager?.networkReachabilityStatus == .notReachable {
-            onCompletion(nil, NSError(domain: "WSApi", code: -2, userInfo: nil))
-            return
-        }
         
         Alamofire.request(url, method: Alamofire.HTTPMethod(rawValue: method.rawValue)!, parameters: parameters, encoding: param_Encoding ?? URLEncoding.default, headers: headers)
             .validate()
@@ -100,14 +99,11 @@ class WSAPI {
     }
     
     func downloadFile(urlFile: String, toLocation location: URL, completion: @escaping((_ fileSaved: URL?, _ error: NSError?) -> Void )) {
-        setupReachability()
-        if manager?.networkReachabilityStatus == .notReachable {
-            completion(nil, NSError(domain: "WSApi", code: -2, userInfo: nil))
-            return
-        }
+        
         let destination: DownloadRequest.DownloadFileDestination = {_, _ in
             return (location, [.removePreviousFile, .createIntermediateDirectories])
         }
+        
         Alamofire.download(urlFile, to: destination).response { response in
             if response.error != nil {
                 print("response failed for service: \(urlFile)")
@@ -125,35 +121,5 @@ class WSAPI {
         }
     }
     
-    func setupReachability() {
-        
-        if manager != nil {
-            WSAPI.isFirstCheck = false
-            return
-        }
-
-        manager = NetworkReachabilityManager(host: "www.apple.com")
-        manager?.listener = { status in
-            print("Network Status Changed: \(status)")
-
-            if WSAPI.isFirstCheck {
-                return
-            }
-            
-            if status == .notReachable {
-                
-                NotificationCenter.default.post(name: WSAPI.topicNetWorkDisallow, object: nil)
-                return
-            }
-            
-            NotificationCenter.default.post(name: WSAPI.topicNetWorkEnable, object: nil)
-        }
-        manager?.startListening()
-    }
-    
 }
 
-
-extension Notification.Name {
-    static let unauthorizedRequest = Notification.Name("unauthorizedRequest")
-}

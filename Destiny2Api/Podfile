@@ -5,5 +5,8 @@ target 'Destiny2Api' do
   
   pod 'Alamofire'
   pod 'IBAnimatable'
+  pod 'RealmSwift'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 end

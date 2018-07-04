@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DF939DCF98F538C3C0BF23A5946F4C58"
+               BlueprintIdentifier = "9153A0324746A57C05C38D8F9E7707D3"
                BuildableName = "Pods_Destiny2Api.framework"
                BlueprintName = "Pods-Destiny2Api"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DF939DCF98F538C3C0BF23A5946F4C58"
+            BlueprintIdentifier = "9153A0324746A57C05C38D8F9E7707D3"
             BuildableName = "Pods_Destiny2Api.framework"
             BlueprintName = "Pods-Destiny2Api"
             ReferencedContainer = "container:Pods.xcodeproj">

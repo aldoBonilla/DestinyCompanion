@@ -10,15 +10,26 @@
 		1D4692B535466D6B3D4C77A0 /* Pods_Destiny2Api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BAC47E53314CBE3C02E3588 /* Pods_Destiny2Api.framework */; };
 		CA351881200FB37A00F5AABC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA351880200FB37A00F5AABC /* AppDelegate.swift */; };
 		CA351883200FB37A00F5AABC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA351882200FB37A00F5AABC /* ViewController.swift */; };
-		CA351886200FB37A00F5AABC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA351884200FB37A00F5AABC /* Main.storyboard */; };
 		CA351888200FB37A00F5AABC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA351887200FB37A00F5AABC /* Assets.xcassets */; };
-		CA35188B200FB37A00F5AABC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA351889200FB37A00F5AABC /* LaunchScreen.storyboard */; };
 		CA351895200FB9FC00F5AABC /* WSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA351894200FB9FB00F5AABC /* WSAPI.swift */; };
 		CA351897200FBED600F5AABC /* EndpointConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA351896200FBED600F5AABC /* EndpointConfiguration.swift */; };
 		CA351899200FD76B00F5AABC /* UserEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA351898200FD76B00F5AABC /* UserEndpoints.swift */; };
-		CA35189E200FE4AD00F5AABC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35189D200FE4AD00F5AABC /* User.swift */; };
 		CA3518A0200FE58800F5AABC /* EntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35189F200FE58800F5AABC /* EntityProtocol.swift */; };
 		CA3518A2200FE86700F5AABC /* UserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3518A1200FE86700F5AABC /* UserWorker.swift */; };
+		CAF5A0E220EC2779001F4C30 /* LoginEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0E120EC2779001F4C30 /* LoginEndpoints.swift */; };
+		CAF5A0E920EC2DFF001F4C30 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0E720EC2DFF001F4C30 /* User.swift */; };
+		CAF5A0EB20EC2E0C001F4C30 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0EA20EC2E0C001F4C30 /* Token.swift */; };
+		CAF5A0ED20EC2E2B001F4C30 /* Token_Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0EC20EC2E2B001F4C30 /* Token_Persistance.swift */; };
+		CAF5A0EF20EC35EF001F4C30 /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0EE20EC35EF001F4C30 /* LoginWorker.swift */; };
+		CAF5A0F220EC3902001F4C30 /* RealmApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0F120EC3902001F4C30 /* RealmApi.swift */; };
+		CAF5A0F520EC6D8A001F4C30 /* CurrentSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0F420EC6D8A001F4C30 /* CurrentSession.swift */; };
+		CAF5A0F820EC7468001F4C30 /* AlertsUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0F720EC7468001F4C30 /* AlertsUtility.swift */; };
+		CAF5A0FC20ED457D001F4C30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF5A0FA20ED457D001F4C30 /* LaunchScreen.storyboard */; };
+		CAF5A0FD20ED457D001F4C30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF5A0FB20ED457D001F4C30 /* Main.storyboard */; };
+		CAF5A0FF20ED45C9001F4C30 /* ItemManagment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF5A0FE20ED45C9001F4C30 /* ItemManagment.storyboard */; };
+		CAF5A10120ED45F5001F4C30 /* ClanManagment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF5A10020ED45F5001F4C30 /* ClanManagment.storyboard */; };
+		CAF5A10720ED4B30001F4C30 /* ItemManagmentRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A10620ED4B30001F4C30 /* ItemManagmentRootViewController.swift */; };
+		CAF5A10920ED4B40001F4C30 /* ClanManagmentRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A10820ED4B40001F4C30 /* ClanManagmentRootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,16 +38,27 @@
 		CA35187D200FB37A00F5AABC /* Destiny2Api.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Destiny2Api.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA351880200FB37A00F5AABC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA351882200FB37A00F5AABC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CA351885200FB37A00F5AABC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA351887200FB37A00F5AABC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CA35188A200FB37A00F5AABC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA35188C200FB37A00F5AABC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA351894200FB9FB00F5AABC /* WSAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSAPI.swift; sourceTree = "<group>"; };
 		CA351896200FBED600F5AABC /* EndpointConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointConfiguration.swift; sourceTree = "<group>"; };
 		CA351898200FD76B00F5AABC /* UserEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoints.swift; sourceTree = "<group>"; };
-		CA35189D200FE4AD00F5AABC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA35189F200FE58800F5AABC /* EntityProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityProtocol.swift; sourceTree = "<group>"; };
 		CA3518A1200FE86700F5AABC /* UserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWorker.swift; sourceTree = "<group>"; };
+		CAF5A0E120EC2779001F4C30 /* LoginEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndpoints.swift; sourceTree = "<group>"; };
+		CAF5A0E720EC2DFF001F4C30 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CAF5A0EA20EC2E0C001F4C30 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		CAF5A0EC20EC2E2B001F4C30 /* Token_Persistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token_Persistance.swift; sourceTree = "<group>"; };
+		CAF5A0EE20EC35EF001F4C30 /* LoginWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
+		CAF5A0F120EC3902001F4C30 /* RealmApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmApi.swift; sourceTree = "<group>"; };
+		CAF5A0F420EC6D8A001F4C30 /* CurrentSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSession.swift; sourceTree = "<group>"; };
+		CAF5A0F720EC7468001F4C30 /* AlertsUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsUtility.swift; sourceTree = "<group>"; };
+		CAF5A0FA20ED457D001F4C30 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CAF5A0FB20ED457D001F4C30 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		CAF5A0FE20ED45C9001F4C30 /* ItemManagment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemManagment.storyboard; sourceTree = "<group>"; };
+		CAF5A10020ED45F5001F4C30 /* ClanManagment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClanManagment.storyboard; sourceTree = "<group>"; };
+		CAF5A10620ED4B30001F4C30 /* ItemManagmentRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManagmentRootViewController.swift; sourceTree = "<group>"; };
+		CAF5A10820ED4B40001F4C30 /* ClanManagmentRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanManagmentRootViewController.swift; sourceTree = "<group>"; };
 		D9586CA77A3E680F121FD71A /* Pods-Destiny2Api.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny2Api.release.xcconfig"; path = "Pods/Target Support Files/Pods-Destiny2Api/Pods-Destiny2Api.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,14 +104,15 @@
 		CA35187F200FB37A00F5AABC /* Destiny2Api */ = {
 			isa = PBXGroup;
 			children = (
+				CAF5A0F620EC745A001F4C30 /* Utilities */,
 				CA351892200FB9FB00F5AABC /* Services */,
 				CA35189A200FE3D800F5AABC /* Models */,
 				CA35189B200FE3D800F5AABC /* Workers */,
+				CAF5A10220ED4A6D001F4C30 /* ViewControllers */,
+				CAF5A0F920ED457D001F4C30 /* Storyboards */,
 				CA351880200FB37A00F5AABC /* AppDelegate.swift */,
 				CA351882200FB37A00F5AABC /* ViewController.swift */,
-				CA351884200FB37A00F5AABC /* Main.storyboard */,
 				CA351887200FB37A00F5AABC /* Assets.xcassets */,
-				CA351889200FB37A00F5AABC /* LaunchScreen.storyboard */,
 				CA35188C200FB37A00F5AABC /* Info.plist */,
 			);
 			path = Destiny2Api;
@@ -98,6 +121,7 @@
 		CA351892200FB9FB00F5AABC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CAF5A0F020EC38F0001F4C30 /* Persistance */,
 				CA351893200FB9FB00F5AABC /* Networking */,
 			);
 			path = Services;
@@ -108,6 +132,7 @@
 			children = (
 				CA351894200FB9FB00F5AABC /* WSAPI.swift */,
 				CA351896200FBED600F5AABC /* EndpointConfiguration.swift */,
+				CAF5A0E120EC2779001F4C30 /* LoginEndpoints.swift */,
 				CA351898200FD76B00F5AABC /* UserEndpoints.swift */,
 			);
 			path = Networking;
@@ -117,7 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				CA35189F200FE58800F5AABC /* EntityProtocol.swift */,
-				CA35189C200FE48600F5AABC /* User */,
+				CAF5A0F320EC6D76001F4C30 /* Singletons */,
+				CAF5A0E320EC2DFF001F4C30 /* PersistanceModels */,
+				CAF5A0E520EC2DFF001F4C30 /* ServicesModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -125,17 +152,119 @@
 		CA35189B200FE3D800F5AABC /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				CAF5A0EE20EC35EF001F4C30 /* LoginWorker.swift */,
 				CA3518A1200FE86700F5AABC /* UserWorker.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
 		};
-		CA35189C200FE48600F5AABC /* User */ = {
+		CAF5A0E320EC2DFF001F4C30 /* PersistanceModels */ = {
 			isa = PBXGroup;
 			children = (
-				CA35189D200FE4AD00F5AABC /* User.swift */,
+				CAF5A0E420EC2DFF001F4C30 /* Login */,
+			);
+			path = PersistanceModels;
+			sourceTree = "<group>";
+		};
+		CAF5A0E420EC2DFF001F4C30 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CAF5A0EC20EC2E2B001F4C30 /* Token_Persistance.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		CAF5A0E520EC2DFF001F4C30 /* ServicesModels */ = {
+			isa = PBXGroup;
+			children = (
+				CAF5A0E620EC2DFF001F4C30 /* User */,
+				CAF5A0E820EC2DFF001F4C30 /* Login */,
+			);
+			path = ServicesModels;
+			sourceTree = "<group>";
+		};
+		CAF5A0E620EC2DFF001F4C30 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				CAF5A0E720EC2DFF001F4C30 /* User.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		CAF5A0E820EC2DFF001F4C30 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CAF5A0EA20EC2E0C001F4C30 /* Token.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		CAF5A0F020EC38F0001F4C30 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				CAF5A0F120EC3902001F4C30 /* RealmApi.swift */,
+			);
+			path = Persistance;
+			sourceTree = "<group>";
+		};
+		CAF5A0F320EC6D76001F4C30 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				CAF5A0F420EC6D8A001F4C30 /* CurrentSession.swift */,
+			);
+			path = Singletons;
+			sourceTree = "<group>";
+		};
+		CAF5A0F620EC745A001F4C30 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CAF5A0F720EC7468001F4C30 /* AlertsUtility.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CAF5A0F920ED457D001F4C30 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CAF5A0FA20ED457D001F4C30 /* LaunchScreen.storyboard */,
+				CAF5A0FB20ED457D001F4C30 /* Main.storyboard */,
+				CAF5A0FE20ED45C9001F4C30 /* ItemManagment.storyboard */,
+				CAF5A10020ED45F5001F4C30 /* ClanManagment.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CAF5A10220ED4A6D001F4C30 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CAF5A10320ED4AA2001F4C30 /* ClanManagmentControllers */,
+				CAF5A10520ED4AA3001F4C30 /* ItemManagmentControllers */,
+				CAF5A10420ED4AA3001F4C30 /* StartViewControllers */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CAF5A10320ED4AA2001F4C30 /* ClanManagmentControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CAF5A10820ED4B40001F4C30 /* ClanManagmentRootViewController.swift */,
+			);
+			path = ClanManagmentControllers;
+			sourceTree = "<group>";
+		};
+		CAF5A10420ED4AA3001F4C30 /* StartViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StartViewControllers;
+			sourceTree = "<group>";
+		};
+		CAF5A10520ED4AA3001F4C30 /* ItemManagmentControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CAF5A10620ED4B30001F4C30 /* ItemManagmentRootViewController.swift */,
+			);
+			path = ItemManagmentControllers;
 			sourceTree = "<group>";
 		};
 		D6446AFA725627EE56C9B120 /* Frameworks */ = {
@@ -208,9 +337,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA35188B200FB37A00F5AABC /* LaunchScreen.storyboard in Resources */,
+				CAF5A0FD20ED457D001F4C30 /* Main.storyboard in Resources */,
 				CA351888200FB37A00F5AABC /* Assets.xcassets in Resources */,
-				CA351886200FB37A00F5AABC /* Main.storyboard in Resources */,
+				CAF5A10120ED45F5001F4C30 /* ClanManagment.storyboard in Resources */,
+				CAF5A0FF20ED45C9001F4C30 /* ItemManagment.storyboard in Resources */,
+				CAF5A0FC20ED457D001F4C30 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,11 +390,15 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Destiny2Api/Pods-Destiny2Api-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IBAnimatable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -278,36 +413,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA351883200FB37A00F5AABC /* ViewController.swift in Sources */,
+				CAF5A0F220EC3902001F4C30 /* RealmApi.swift in Sources */,
+				CAF5A0EB20EC2E0C001F4C30 /* Token.swift in Sources */,
 				CA351881200FB37A00F5AABC /* AppDelegate.swift in Sources */,
 				CA3518A0200FE58800F5AABC /* EntityProtocol.swift in Sources */,
-				CA35189E200FE4AD00F5AABC /* User.swift in Sources */,
+				CAF5A10920ED4B40001F4C30 /* ClanManagmentRootViewController.swift in Sources */,
+				CAF5A0ED20EC2E2B001F4C30 /* Token_Persistance.swift in Sources */,
 				CA3518A2200FE86700F5AABC /* UserWorker.swift in Sources */,
+				CAF5A0E220EC2779001F4C30 /* LoginEndpoints.swift in Sources */,
+				CAF5A0E920EC2DFF001F4C30 /* User.swift in Sources */,
 				CA351899200FD76B00F5AABC /* UserEndpoints.swift in Sources */,
+				CAF5A10720ED4B30001F4C30 /* ItemManagmentRootViewController.swift in Sources */,
+				CAF5A0F520EC6D8A001F4C30 /* CurrentSession.swift in Sources */,
 				CA351895200FB9FC00F5AABC /* WSAPI.swift in Sources */,
 				CA351897200FBED600F5AABC /* EndpointConfiguration.swift in Sources */,
+				CAF5A0EF20EC35EF001F4C30 /* LoginWorker.swift in Sources */,
+				CAF5A0F820EC7468001F4C30 /* AlertsUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		CA351884200FB37A00F5AABC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CA351885200FB37A00F5AABC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		CA351889200FB37A00F5AABC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CA35188A200FB37A00F5AABC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CA35188D200FB37A00F5AABC /* Debug */ = {
@@ -426,7 +551,7 @@
 				DEVELOPMENT_TEAM = MG8EEUH3LX;
 				INFOPLIST_FILE = Destiny2Api/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = aldo.Destiny2Api;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aldo.Destiny2Api;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -442,7 +567,7 @@
 				DEVELOPMENT_TEAM = MG8EEUH3LX;
 				INFOPLIST_FILE = Destiny2Api/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = aldo.Destiny2Api;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aldo.Destiny2Api;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

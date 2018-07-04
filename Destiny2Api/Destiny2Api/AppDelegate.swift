@@ -41,6 +41,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        print(url)
+        
+        guard let range = url.absoluteString.range(of: "code=") else {
+            return true
+        }
+        
+        let code = String(url.absoluteString[range.upperBound...])
+        
+        guard let viewController = window?.rootViewController as? ViewController else {
+            return true
+        }
+        
+        viewController.doLoginWith(code: code)
+        
+        return true
+    }
+    
+    ///Presenta una alerta desde el rootviewController muy util para cuando no sabemos que controlador esta presente P/E desde un singleton como locationManager
+    func presentAlertFromRootViewController(title: String, message: String) {
+        guard let viewController = window?.rootViewController else {
+            return
+        }
+        showSimpleAlertWithTitle(title: title, message: message, viewController: viewController)
+    }
+    
 }
 

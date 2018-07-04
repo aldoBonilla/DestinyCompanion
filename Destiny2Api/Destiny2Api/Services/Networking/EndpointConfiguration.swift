@@ -21,7 +21,9 @@ protocol EndpointConfiguration {
 struct Endpoint {
     
     var serverURL: String {
-        return "https://www.bungie.net/Platform/Destiny2"
+        
+        return "https://www.bungie.net/platform/"
+        //return "https://www.bungie.net/Platform/Destiny2"
     }
     
     var bungieImages: String {
