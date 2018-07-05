@@ -11,6 +11,8 @@ import SafariServices
 
 class ViewController: UIViewController {
 
+    private var safariVC: SFSafariViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.verifyToken()
@@ -25,9 +27,9 @@ class ViewController: UIViewController {
         
         LoginWorker.shared.validateCurrentToken() { error in
             if error != nil {
-                let svc = SFSafariViewController(url: URL(string: "https://www.bungie.net/en/oauth/authorize?client_id=23342&response_type=code&requth=true")!)
+                self.safariVC = SFSafariViewController(url: URL(string: "https://www.bungie.net/en/oauth/authorize?client_id=23342&response_type=code&requth=true")!)
                 DispatchQueue.main.async {
-                    self.present(svc, animated: true, completion: nil)
+                    self.present(self.safariVC!, animated: true, completion: nil)
                 }
             } else {
                 self.getUserInfo()
@@ -36,9 +38,11 @@ class ViewController: UIViewController {
     }
     
     private func getUserInfo() {
-        UserWorker.basicCurrentUserInfo() { user, error in
+        UserWorker.basicCurrentUserInfo() { error in
             if let workerError = error {
-                showSimpleAlertWithTitle(title: "Error", message: workerError.description, viewController: self)
+                DispatchQueue.main.async {
+                    showSimpleAlertWithTitle(title: "Error", message: workerError.description, viewController: self)
+                }
             } else {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "mainSegue", sender: self)
@@ -52,7 +56,10 @@ class ViewController: UIViewController {
             if let workerError = error {
                 showSimpleAlertWithTitle(title: "Error", message: workerError.description, viewController: self)
             } else {
-                self.getUserInfo()
+                DispatchQueue.main.async {
+                    self.safariVC!.dismiss(animated: true, completion: nil)
+                    self.getUserInfo()
+                }
             }
         }
     }

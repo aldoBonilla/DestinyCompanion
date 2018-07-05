@@ -16,6 +16,10 @@
 		CA351899200FD76B00F5AABC /* UserEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA351898200FD76B00F5AABC /* UserEndpoints.swift */; };
 		CA3518A0200FE58800F5AABC /* EntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35189F200FE58800F5AABC /* EntityProtocol.swift */; };
 		CA3518A2200FE86700F5AABC /* UserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3518A1200FE86700F5AABC /* UserWorker.swift */; };
+		CAD2434320ED881400F68B2E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434220ED881400F68B2E /* Character.swift */; };
+		CAD2434520ED8AFD00F68B2E /* CharacterEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434420ED8AFD00F68B2E /* CharacterEnums.swift */; };
+		CAD2434920ED98F300F68B2E /* CharacterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434820ED98F300F68B2E /* CharacterTableViewController.swift */; };
+		CAD2434E20EDAAA200F68B2E /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434D20EDAAA200F68B2E /* CharacterTableViewCell.swift */; };
 		CAF5A0E220EC2779001F4C30 /* LoginEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0E120EC2779001F4C30 /* LoginEndpoints.swift */; };
 		CAF5A0E920EC2DFF001F4C30 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0E720EC2DFF001F4C30 /* User.swift */; };
 		CAF5A0EB20EC2E0C001F4C30 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0EA20EC2E0C001F4C30 /* Token.swift */; };
@@ -26,9 +30,8 @@
 		CAF5A0F820EC7468001F4C30 /* AlertsUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0F720EC7468001F4C30 /* AlertsUtility.swift */; };
 		CAF5A0FC20ED457D001F4C30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF5A0FA20ED457D001F4C30 /* LaunchScreen.storyboard */; };
 		CAF5A0FD20ED457D001F4C30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF5A0FB20ED457D001F4C30 /* Main.storyboard */; };
-		CAF5A0FF20ED45C9001F4C30 /* ItemManagment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF5A0FE20ED45C9001F4C30 /* ItemManagment.storyboard */; };
+		CAF5A0FF20ED45C9001F4C30 /* Character.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF5A0FE20ED45C9001F4C30 /* Character.storyboard */; };
 		CAF5A10120ED45F5001F4C30 /* ClanManagment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF5A10020ED45F5001F4C30 /* ClanManagment.storyboard */; };
-		CAF5A10720ED4B30001F4C30 /* ItemManagmentRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A10620ED4B30001F4C30 /* ItemManagmentRootViewController.swift */; };
 		CAF5A10920ED4B40001F4C30 /* ClanManagmentRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A10820ED4B40001F4C30 /* ClanManagmentRootViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +48,10 @@
 		CA351898200FD76B00F5AABC /* UserEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoints.swift; sourceTree = "<group>"; };
 		CA35189F200FE58800F5AABC /* EntityProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityProtocol.swift; sourceTree = "<group>"; };
 		CA3518A1200FE86700F5AABC /* UserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWorker.swift; sourceTree = "<group>"; };
+		CAD2434220ED881400F68B2E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		CAD2434420ED8AFD00F68B2E /* CharacterEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEnums.swift; sourceTree = "<group>"; };
+		CAD2434820ED98F300F68B2E /* CharacterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewController.swift; sourceTree = "<group>"; };
+		CAD2434D20EDAAA200F68B2E /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		CAF5A0E120EC2779001F4C30 /* LoginEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndpoints.swift; sourceTree = "<group>"; };
 		CAF5A0E720EC2DFF001F4C30 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CAF5A0EA20EC2E0C001F4C30 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -55,9 +62,8 @@
 		CAF5A0F720EC7468001F4C30 /* AlertsUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsUtility.swift; sourceTree = "<group>"; };
 		CAF5A0FA20ED457D001F4C30 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAF5A0FB20ED457D001F4C30 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		CAF5A0FE20ED45C9001F4C30 /* ItemManagment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemManagment.storyboard; sourceTree = "<group>"; };
+		CAF5A0FE20ED45C9001F4C30 /* Character.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Character.storyboard; sourceTree = "<group>"; };
 		CAF5A10020ED45F5001F4C30 /* ClanManagment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClanManagment.storyboard; sourceTree = "<group>"; };
-		CAF5A10620ED4B30001F4C30 /* ItemManagmentRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManagmentRootViewController.swift; sourceTree = "<group>"; };
 		CAF5A10820ED4B40001F4C30 /* ClanManagmentRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanManagmentRootViewController.swift; sourceTree = "<group>"; };
 		D9586CA77A3E680F121FD71A /* Pods-Destiny2Api.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny2Api.release.xcconfig"; path = "Pods/Target Support Files/Pods-Destiny2Api/Pods-Destiny2Api.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +164,23 @@
 			path = Workers;
 			sourceTree = "<group>";
 		};
+		CAD2434120ED880800F68B2E /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2434420ED8AFD00F68B2E /* CharacterEnums.swift */,
+				CAD2434220ED881400F68B2E /* Character.swift */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
+		CAD2434C20EDAA8800F68B2E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2434D20EDAAA200F68B2E /* CharacterTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		CAF5A0E320EC2DFF001F4C30 /* PersistanceModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +202,7 @@
 			children = (
 				CAF5A0E620EC2DFF001F4C30 /* User */,
 				CAF5A0E820EC2DFF001F4C30 /* Login */,
+				CAD2434120ED880800F68B2E /* Character */,
 			);
 			path = ServicesModels;
 			sourceTree = "<group>";
@@ -228,7 +252,7 @@
 			children = (
 				CAF5A0FA20ED457D001F4C30 /* LaunchScreen.storyboard */,
 				CAF5A0FB20ED457D001F4C30 /* Main.storyboard */,
-				CAF5A0FE20ED45C9001F4C30 /* ItemManagment.storyboard */,
+				CAF5A0FE20ED45C9001F4C30 /* Character.storyboard */,
 				CAF5A10020ED45F5001F4C30 /* ClanManagment.storyboard */,
 			);
 			path = Storyboards;
@@ -238,7 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				CAF5A10320ED4AA2001F4C30 /* ClanManagmentControllers */,
-				CAF5A10520ED4AA3001F4C30 /* ItemManagmentControllers */,
+				CAF5A10520ED4AA3001F4C30 /* CharacterControllers */,
 				CAF5A10420ED4AA3001F4C30 /* StartViewControllers */,
 			);
 			path = ViewControllers;
@@ -259,12 +283,13 @@
 			path = StartViewControllers;
 			sourceTree = "<group>";
 		};
-		CAF5A10520ED4AA3001F4C30 /* ItemManagmentControllers */ = {
+		CAF5A10520ED4AA3001F4C30 /* CharacterControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CAF5A10620ED4B30001F4C30 /* ItemManagmentRootViewController.swift */,
+				CAD2434C20EDAA8800F68B2E /* Cells */,
+				CAD2434820ED98F300F68B2E /* CharacterTableViewController.swift */,
 			);
-			path = ItemManagmentControllers;
+			path = CharacterControllers;
 			sourceTree = "<group>";
 		};
 		D6446AFA725627EE56C9B120 /* Frameworks */ = {
@@ -340,7 +365,7 @@
 				CAF5A0FD20ED457D001F4C30 /* Main.storyboard in Resources */,
 				CA351888200FB37A00F5AABC /* Assets.xcassets in Resources */,
 				CAF5A10120ED45F5001F4C30 /* ClanManagment.storyboard in Resources */,
-				CAF5A0FF20ED45C9001F4C30 /* ItemManagment.storyboard in Resources */,
+				CAF5A0FF20ED45C9001F4C30 /* Character.storyboard in Resources */,
 				CAF5A0FC20ED457D001F4C30 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +415,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Destiny2Api/Pods-Destiny2Api-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
@@ -397,6 +423,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IBAnimatable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
@@ -413,17 +440,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA351883200FB37A00F5AABC /* ViewController.swift in Sources */,
+				CAD2434920ED98F300F68B2E /* CharacterTableViewController.swift in Sources */,
 				CAF5A0F220EC3902001F4C30 /* RealmApi.swift in Sources */,
+				CAD2434520ED8AFD00F68B2E /* CharacterEnums.swift in Sources */,
 				CAF5A0EB20EC2E0C001F4C30 /* Token.swift in Sources */,
 				CA351881200FB37A00F5AABC /* AppDelegate.swift in Sources */,
 				CA3518A0200FE58800F5AABC /* EntityProtocol.swift in Sources */,
+				CAD2434E20EDAAA200F68B2E /* CharacterTableViewCell.swift in Sources */,
 				CAF5A10920ED4B40001F4C30 /* ClanManagmentRootViewController.swift in Sources */,
 				CAF5A0ED20EC2E2B001F4C30 /* Token_Persistance.swift in Sources */,
 				CA3518A2200FE86700F5AABC /* UserWorker.swift in Sources */,
 				CAF5A0E220EC2779001F4C30 /* LoginEndpoints.swift in Sources */,
+				CAD2434320ED881400F68B2E /* Character.swift in Sources */,
 				CAF5A0E920EC2DFF001F4C30 /* User.swift in Sources */,
 				CA351899200FD76B00F5AABC /* UserEndpoints.swift in Sources */,
-				CAF5A10720ED4B30001F4C30 /* ItemManagmentRootViewController.swift in Sources */,
 				CAF5A0F520EC6D8A001F4C30 /* CurrentSession.swift in Sources */,
 				CA351895200FB9FC00F5AABC /* WSAPI.swift in Sources */,
 				CA351897200FBED600F5AABC /* EndpointConfiguration.swift in Sources */,

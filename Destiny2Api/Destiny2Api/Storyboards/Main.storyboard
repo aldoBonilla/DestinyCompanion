@@ -54,12 +54,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SIB-J9-X9p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="943" y="358"/>
+            <point key="canvasLocation" x="1046" y="116"/>
         </scene>
-        <!--ItemManagmentRoot-->
+        <!--CharacterRoot-->
         <scene sceneID="cfX-rJ-2YV">
             <objects>
-                <viewControllerPlaceholder storyboardName="ItemManagment" referencedIdentifier="ItemManagmentRoot" id="PaG-i5-Yqg" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Character" referencedIdentifier="CharacterRoot" id="PaG-i5-Yqg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="Xn9-iP-8W8"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAr-pT-0mj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -74,7 +74,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udI-Fd-rnI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1617" y="-34"/>
+            <point key="canvasLocation" x="1745" y="107"/>
         </scene>
     </scenes>
     <resources>

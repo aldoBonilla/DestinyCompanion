@@ -8,5 +8,6 @@ target 'Destiny2Api' do
   pod 'RealmSwift'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'Kingfisher'
 
 end

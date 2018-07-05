@@ -22,7 +22,7 @@ struct Endpoint {
     
     var serverURL: String {
         
-        return "https://www.bungie.net/platform/"
+        return "https://www.bungie.net/platform"
         //return "https://www.bungie.net/Platform/Destiny2"
     }
     

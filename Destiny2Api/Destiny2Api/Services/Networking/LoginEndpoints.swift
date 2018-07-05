@@ -18,7 +18,7 @@ enum LoginServices: EndpointConfiguration {
     }
     
     var path: String {
-        return "app/oauth/token/"
+        return "/app/oauth/token/"
     }
     
     var fullPath: String {

@@ -13,12 +13,18 @@ class CurrentSession {
     static let shared = CurrentSession()
     
     public private(set) var token: Token? = nil
+    public private(set) var user: User? = nil
     
     func update(token: Token?) {
         self.token = token
     }
     
+    func update(user: User?) {
+        self.user = user
+    }
+    
     func cleanSession() {
+        self.user = nil
         self.token = nil
     }
     

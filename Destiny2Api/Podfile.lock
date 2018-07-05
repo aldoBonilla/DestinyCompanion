@@ -4,6 +4,7 @@ PODS:
     - Fabric (~> 1.6.3)
   - Fabric (1.6.13)
   - IBAnimatable (5.0.0)
+  - Kingfisher (4.1.0)
   - Realm (2.10.2):
     - Realm/Headers (= 2.10.2)
   - Realm/Headers (2.10.2)
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - Crashlytics
   - Fabric
   - IBAnimatable
+  - Kingfisher
   - RealmSwift
 
 SPEC CHECKSUMS:
@@ -22,9 +24,10 @@ SPEC CHECKSUMS:
   Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
   Fabric: 2fb5676bc811af011a04513451f463dac6803206
   IBAnimatable: aa2286a9cf8fb4ae2e1be85c5287ae56143b024f
+  Kingfisher: f14df8cbe576bf55f211fa589e9869bceb4ea87d
   Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
   RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
 
-PODFILE CHECKSUM: 1558a03f3726c2ddefd0e3767282f8b9973ca9fc
+PODFILE CHECKSUM: c96d36e240b41eb0b1d77d3917dd096f2ca0aa44
 
 COCOAPODS: 1.3.1

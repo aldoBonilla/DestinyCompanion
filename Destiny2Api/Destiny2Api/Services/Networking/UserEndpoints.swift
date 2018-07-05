@@ -8,10 +8,26 @@
 
 import Foundation
 
+enum UserInfoType: Int {
+    
+    case profileVault = 102
+    case character = 200
+    case characterInventories = 201
+    case characterActivities = 204
+    
+    var keyword: String {
+        switch self {
+        case .character: return "characters"
+        default: return ""
+        }
+    }
+}
+
+
 enum UserMethods: EndpointConfiguration {
     
     case searchPlayer(platformType: Int, username: String)
-    case profile(platformType: Int, id: String)
+    case infoRequest(platformType: Int, id: String, infoType: UserInfoType)
     case currentUserInfo
     
     var serverURL: String {
@@ -21,13 +37,13 @@ enum UserMethods: EndpointConfiguration {
     var path: String {
         switch self {
         case .searchPlayer(let platform, let username): return "/SearchDestinyPlayer/\(platform)/\(username)"
-        case .profile(let platform, let userid): return "/\(platform)/Profile/\(userid)/"
-        case .currentUserInfo: return "/GetMembershipsForCurrentUser/"
+        case .infoRequest(let platform, let userid, _): return "/Destiny2/\(platform)/Profile/\(userid)/"
+        case .currentUserInfo: return "/User/GetMembershipsForCurrentUser/"
         }
     }
     
     var fullPath: String {
-        return "\(serverURL)/User\(path)"
+        return "\(serverURL)\(path)"
     }
     
     var method: webMethod {
@@ -37,7 +53,7 @@ enum UserMethods: EndpointConfiguration {
     var parameters: BasicDictionary? {
         switch self {
         case .searchPlayer, .currentUserInfo: return nil
-        case .profile: return ["components": "100"]
+        case .infoRequest( _, _, let requestType): return ["components": "\(requestType.rawValue)"]
         }
     }
     
@@ -47,8 +63,8 @@ enum UserMethods: EndpointConfiguration {
     
     var headers: [String : String]? {
         switch self {
-        case .searchPlayer, .profile: return [headerApiDestiny: destinyApiKey]
-        case .currentUserInfo: return [headerApiDestiny: destinyApiKey, "Authorization": "Basic \(CurrentSession.shared.token!.access_token)", "oauth2": "ReadBasicUserProfile"]
+        case .searchPlayer, .infoRequest: return [headerApiDestiny: destinyApiKey]
+        case .currentUserInfo: return [headerApiDestiny: destinyApiKey, "Authorization": "Bearer \(CurrentSession.shared.token!.access_token)"]
         }
     }
 }
@@ -64,12 +80,11 @@ struct UserEndpoints {
             if error != nil {
                 completion(nil, error)
             } else {
-                guard let responseInfo = try? JSONSerialization.jsonObject(with: response!, options: []) as! EntityDictionary else {
+                guard let responseInfo = try? JSONSerialization.jsonObject(with: response!, options: []) as! EntityDictionary, let responseObjects = responseInfo["Response"] as? EntityDictionary, let memberships = responseObjects["destinyMemberships"] as? [EntityDictionary], let thisMembership = memberships.first else {
                     completion(nil, NSError(domain: "LibraryApi", code: -3, userInfo: nil))
                     return
                 }
-                
-                //completion(userInfo, nil)
+                completion(thisMembership, nil)
             }
             
         }
@@ -92,17 +107,17 @@ struct UserEndpoints {
         }
     }
     
-    static func getProfile(forPlatform platform: Int, userId: String, completion: @escaping ((_ userInfo: EntityDictionary?,_ error: NSError?) -> Void )) {
-        let profile = UserMethods.profile(platformType: platform, id: userId)
-        WSAPI.shared.callService(url: profile.fullPath, method: profile.method, parameters: profile.parameters, param_Encoding: profile.encoding?.parameterEncoding, headers: profile.headers) { response, error in
+    static func getUser(infoType infoRequested: UserInfoType, forPlatform platform: Int, userId: String, completion: @escaping ((_ userInfo: EntityDictionary?,_ error: NSError?) -> Void )) {
+        let infoRequest = UserMethods.infoRequest(platformType: platform, id: userId, infoType: infoRequested)
+        WSAPI.shared.callService(url: infoRequest.fullPath, method: infoRequest.method, parameters: infoRequest.parameters, param_Encoding: infoRequest.encoding?.parameterEncoding, headers: infoRequest.headers) { response, error in
             if error != nil {
                 completion(nil, error)
             } else {
-                guard let responseInfo = try? JSONSerialization.jsonObject(with: response!, options: []) as! EntityDictionary, let profile = responseInfo["Response"] as? EntityDictionary else {
+                guard let responseInfo = try? JSONSerialization.jsonObject(with: response!, options: []) as! EntityDictionary, let responseData = responseInfo["Response"] as? EntityDictionary, let infoDictionary = responseData[infoRequested.keyword] as? EntityDictionary else {
                     completion(nil, NSError(domain: "LibraryApi", code: -3, userInfo: nil))
                     return
                 }
-                completion(profile, nil)
+                completion(infoDictionary, nil)
             }
         }
         
