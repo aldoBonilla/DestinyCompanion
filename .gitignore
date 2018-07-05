@@ -416,3 +416,35 @@ Destiny2Api/Pods/Target Support Files/RealmSwift/RealmSwift-prefix.pch
 Destiny2Api/Pods/Target Support Files/RealmSwift/RealmSwift-umbrella.h
 Destiny2Api/Pods/Target Support Files/RealmSwift/RealmSwift.modulemap
 Destiny2Api/Pods/Target Support Files/RealmSwift/RealmSwift.xcconfig
+Destiny2Api/Pods/Kingfisher/LICENSE
+Destiny2Api/Pods/Kingfisher/README.md
+Destiny2Api/Pods/Kingfisher/Sources/AnimatedImageView.swift
+Destiny2Api/Pods/Kingfisher/Sources/Box.swift
+Destiny2Api/Pods/Kingfisher/Sources/CacheSerializer.swift
+Destiny2Api/Pods/Kingfisher/Sources/Filter.swift
+Destiny2Api/Pods/Kingfisher/Sources/FormatIndicatedCacheSerializer.swift
+Destiny2Api/Pods/Kingfisher/Sources/Image.swift
+Destiny2Api/Pods/Kingfisher/Sources/ImageCache.swift
+Destiny2Api/Pods/Kingfisher/Sources/ImageDownloader.swift
+Destiny2Api/Pods/Kingfisher/Sources/ImagePrefetcher.swift
+Destiny2Api/Pods/Kingfisher/Sources/ImageProcessor.swift
+Destiny2Api/Pods/Kingfisher/Sources/ImageTransition.swift
+Destiny2Api/Pods/Kingfisher/Sources/ImageView+Kingfisher.swift
+Destiny2Api/Pods/Kingfisher/Sources/Indicator.swift
+Destiny2Api/Pods/Kingfisher/Sources/Kingfisher.h
+Destiny2Api/Pods/Kingfisher/Sources/Kingfisher.swift
+Destiny2Api/Pods/Kingfisher/Sources/KingfisherManager.swift
+Destiny2Api/Pods/Kingfisher/Sources/KingfisherOptionsInfo.swift
+Destiny2Api/Pods/Kingfisher/Sources/Placeholder.swift
+Destiny2Api/Pods/Kingfisher/Sources/RequestModifier.swift
+Destiny2Api/Pods/Kingfisher/Sources/Resource.swift
+Destiny2Api/Pods/Kingfisher/Sources/String+MD5.swift
+Destiny2Api/Pods/Kingfisher/Sources/ThreadHelper.swift
+Destiny2Api/Pods/Kingfisher/Sources/UIButton+Kingfisher.swift
+Destiny2Api/Pods/Pods.xcodeproj/xcuserdata/abonilla.xcuserdatad/xcschemes/Kingfisher.xcscheme
+Destiny2Api/Pods/Target Support Files/Kingfisher/Info.plist
+Destiny2Api/Pods/Target Support Files/Kingfisher/Kingfisher-dummy.m
+Destiny2Api/Pods/Target Support Files/Kingfisher/Kingfisher-prefix.pch
+Destiny2Api/Pods/Target Support Files/Kingfisher/Kingfisher-umbrella.h
+Destiny2Api/Pods/Target Support Files/Kingfisher/Kingfisher.modulemap
+Destiny2Api/Pods/Target Support Files/Kingfisher/Kingfisher.xcconfig
