@@ -32,7 +32,7 @@ enum LoginServices: EndpointConfiguration {
     var parameters: BasicDictionary? {
         switch self {
         case .token(let code): return ["grant_type": "authorization_code", "code": code, "client_id": client_Id, "client_secret": clientSecret]
-        case .refreshToken(let refreshToken): return ["grant_type": "refresh_token", "refresh_token": refreshToken]
+        case .refreshToken(let refreshToken): return ["grant_type": "refresh_token", "refresh_token": refreshToken, "client_id": client_Id, "client_secret": clientSecret]
         }
     }
     

@@ -23,7 +23,7 @@ struct Character: EntityProtocol, CustomStringConvertible, Hashable {
         guard let id = dictionary["characterId"] as? String,
               let light = dictionary["light"] as? Int,
               let raceRaw = dictionary["raceType"] as? Int,
-              let classRaw = dictionary["raceType"] as? Int,
+              let classRaw = dictionary["classType"] as? Int,
               let emblem = dictionary["emblemPath"] as? String,
               let emblemBackground = dictionary["emblemBackgroundPath"] as? String,
               let level = dictionary["baseCharacterLevel"] as? Int,

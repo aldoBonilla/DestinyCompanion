@@ -8,22 +8,6 @@
 
 import Foundation
 
-enum UserInfoType: Int {
-    
-    case profileVault = 102
-    case character = 200
-    case characterInventories = 201
-    case characterActivities = 204
-    
-    var keyword: String {
-        switch self {
-        case .character: return "characters"
-        default: return ""
-        }
-    }
-}
-
-
 enum UserMethods: EndpointConfiguration {
     
     case searchPlayer(platformType: Int, username: String)
@@ -53,7 +37,7 @@ enum UserMethods: EndpointConfiguration {
     var parameters: BasicDictionary? {
         switch self {
         case .searchPlayer, .currentUserInfo: return nil
-        case .infoRequest( _, _, let requestType): return ["components": "\(requestType.rawValue)"]
+        case .infoRequest( _, _, let requestType): return ["components": "\(requestType.componentValue)"]
         }
     }
     

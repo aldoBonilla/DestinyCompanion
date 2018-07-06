@@ -17,9 +17,11 @@
 		CA3518A0200FE58800F5AABC /* EntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35189F200FE58800F5AABC /* EntityProtocol.swift */; };
 		CA3518A2200FE86700F5AABC /* UserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3518A1200FE86700F5AABC /* UserWorker.swift */; };
 		CAD2434320ED881400F68B2E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434220ED881400F68B2E /* Character.swift */; };
-		CAD2434520ED8AFD00F68B2E /* CharacterEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434420ED8AFD00F68B2E /* CharacterEnums.swift */; };
+		CAD2434520ED8AFD00F68B2E /* ServiceEntitiesEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434420ED8AFD00F68B2E /* ServiceEntitiesEnums.swift */; };
 		CAD2434920ED98F300F68B2E /* CharacterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434820ED98F300F68B2E /* CharacterTableViewController.swift */; };
 		CAD2434E20EDAAA200F68B2E /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434D20EDAAA200F68B2E /* CharacterTableViewCell.swift */; };
+		CAD2437620EED6BD00F68B2E /* ManifestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2437520EED6BD00F68B2E /* ManifestEndpoint.swift */; };
+		CAD2437920EEDE9300F68B2E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2437820EEDE9300F68B2E /* Item.swift */; };
 		CAF5A0E220EC2779001F4C30 /* LoginEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0E120EC2779001F4C30 /* LoginEndpoints.swift */; };
 		CAF5A0E920EC2DFF001F4C30 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0E720EC2DFF001F4C30 /* User.swift */; };
 		CAF5A0EB20EC2E0C001F4C30 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0EA20EC2E0C001F4C30 /* Token.swift */; };
@@ -49,9 +51,11 @@
 		CA35189F200FE58800F5AABC /* EntityProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityProtocol.swift; sourceTree = "<group>"; };
 		CA3518A1200FE86700F5AABC /* UserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWorker.swift; sourceTree = "<group>"; };
 		CAD2434220ED881400F68B2E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		CAD2434420ED8AFD00F68B2E /* CharacterEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEnums.swift; sourceTree = "<group>"; };
+		CAD2434420ED8AFD00F68B2E /* ServiceEntitiesEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEntitiesEnums.swift; sourceTree = "<group>"; };
 		CAD2434820ED98F300F68B2E /* CharacterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewController.swift; sourceTree = "<group>"; };
 		CAD2434D20EDAAA200F68B2E /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
+		CAD2437520EED6BD00F68B2E /* ManifestEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestEndpoint.swift; sourceTree = "<group>"; };
+		CAD2437820EEDE9300F68B2E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		CAF5A0E120EC2779001F4C30 /* LoginEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndpoints.swift; sourceTree = "<group>"; };
 		CAF5A0E720EC2DFF001F4C30 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CAF5A0EA20EC2E0C001F4C30 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 				CA351896200FBED600F5AABC /* EndpointConfiguration.swift */,
 				CAF5A0E120EC2779001F4C30 /* LoginEndpoints.swift */,
 				CA351898200FD76B00F5AABC /* UserEndpoints.swift */,
+				CAD2437520EED6BD00F68B2E /* ManifestEndpoint.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -167,7 +172,6 @@
 		CAD2434120ED880800F68B2E /* Character */ = {
 			isa = PBXGroup;
 			children = (
-				CAD2434420ED8AFD00F68B2E /* CharacterEnums.swift */,
 				CAD2434220ED881400F68B2E /* Character.swift */,
 			);
 			path = Character;
@@ -179,6 +183,14 @@
 				CAD2434D20EDAAA200F68B2E /* CharacterTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		CAD2437720EEDE8100F68B2E /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2437820EEDE9300F68B2E /* Item.swift */,
+			);
+			path = Item;
 			sourceTree = "<group>";
 		};
 		CAF5A0E320EC2DFF001F4C30 /* PersistanceModels */ = {
@@ -200,9 +212,11 @@
 		CAF5A0E520EC2DFF001F4C30 /* ServicesModels */ = {
 			isa = PBXGroup;
 			children = (
+				CAD2434420ED8AFD00F68B2E /* ServiceEntitiesEnums.swift */,
 				CAF5A0E620EC2DFF001F4C30 /* User */,
 				CAF5A0E820EC2DFF001F4C30 /* Login */,
 				CAD2434120ED880800F68B2E /* Character */,
+				CAD2437720EEDE8100F68B2E /* Item */,
 			);
 			path = ServicesModels;
 			sourceTree = "<group>";
@@ -442,13 +456,15 @@
 				CA351883200FB37A00F5AABC /* ViewController.swift in Sources */,
 				CAD2434920ED98F300F68B2E /* CharacterTableViewController.swift in Sources */,
 				CAF5A0F220EC3902001F4C30 /* RealmApi.swift in Sources */,
-				CAD2434520ED8AFD00F68B2E /* CharacterEnums.swift in Sources */,
+				CAD2434520ED8AFD00F68B2E /* ServiceEntitiesEnums.swift in Sources */,
 				CAF5A0EB20EC2E0C001F4C30 /* Token.swift in Sources */,
 				CA351881200FB37A00F5AABC /* AppDelegate.swift in Sources */,
+				CAD2437920EEDE9300F68B2E /* Item.swift in Sources */,
 				CA3518A0200FE58800F5AABC /* EntityProtocol.swift in Sources */,
 				CAD2434E20EDAAA200F68B2E /* CharacterTableViewCell.swift in Sources */,
 				CAF5A10920ED4B40001F4C30 /* ClanManagmentRootViewController.swift in Sources */,
 				CAF5A0ED20EC2E2B001F4C30 /* Token_Persistance.swift in Sources */,
+				CAD2437620EED6BD00F68B2E /* ManifestEndpoint.swift in Sources */,
 				CA3518A2200FE86700F5AABC /* UserWorker.swift in Sources */,
 				CAF5A0E220EC2779001F4C30 /* LoginEndpoints.swift in Sources */,
 				CAD2434320ED881400F68B2E /* Character.swift in Sources */,

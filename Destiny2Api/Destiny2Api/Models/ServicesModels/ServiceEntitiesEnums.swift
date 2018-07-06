@@ -42,3 +42,28 @@ enum CharacterClass: Int {
         }
     }
 }
+
+enum ItemLocation: Int {
+    case unknown
+    case inventory
+    case vault
+    case vendor
+    case postmaster
+}
+
+enum DamageType: Int {
+    case none
+    case kinetic
+    case arc
+    case thermal
+    case void
+    case raid
+}
+
+enum ItemRarity: Int {
+    
+    case common
+    case rare
+    case legendary
+    case exotic
+}
