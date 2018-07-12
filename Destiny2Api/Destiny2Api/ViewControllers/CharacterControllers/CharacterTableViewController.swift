@@ -70,7 +70,7 @@ class CharacterTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return characters.count
+        return characters.count + 1
     }
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -78,18 +78,29 @@ class CharacterTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "characterCell", for: indexPath) as! CharacterTableViewCell
-
-        cell.setup(character: characters[indexPath.row])
-
-        return cell
+        
+        if indexPath.row == characters.count {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "vaultCell", for: indexPath)
+            return cell
+            
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "characterCell", for: indexPath) as! CharacterTableViewCell
+            cell.setup(character: characters[indexPath.row])
+            return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let character = characters[indexPath.row]
+        performSegue(withIdentifier: "CharacterInventory", sender: character)
     }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        guard let characterVC = segue.destination as? CharacterInventoryViewController, let character = sender as? Character else { return }
+        characterVC.character = character
+        
     }
 }

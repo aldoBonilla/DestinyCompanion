@@ -9,12 +9,6 @@
 import Foundation
 import Alamofire
 
-///Diccionario comun para los init de modelos
-typealias BasicDictionary = Dictionary<String, Any>
-
-///Diccionario comun para los init de modelos
-typealias EntityDictionary = Dictionary<String, Any?>
-
 let headerApiDestiny = "X-API-Key"
 let destinyApiKey = "aa8ac79909674f1da752313d781f582e"
 let client_Id = 23342

@@ -11,7 +11,7 @@ import Foundation
 enum UserMethods: EndpointConfiguration {
     
     case searchPlayer(platformType: Int, username: String)
-    case infoRequest(platformType: Int, id: String, infoType: UserInfoType)
+    case infoRequest(platformType: Int, id: String, infoType: UserInfoType, itemRequested: String)
     case currentUserInfo
     
     var serverURL: String {
@@ -21,7 +21,7 @@ enum UserMethods: EndpointConfiguration {
     var path: String {
         switch self {
         case .searchPlayer(let platform, let username): return "/SearchDestinyPlayer/\(platform)/\(username)"
-        case .infoRequest(let platform, let userid, _): return "/Destiny2/\(platform)/Profile/\(userid)/"
+        case .infoRequest(let platform, let userid, let infoType, let itemRequested): return "/Destiny2/\(platform)/Profile/\(userid)/\(infoType.additionalPath)\(itemRequested)"
         case .currentUserInfo: return "/User/GetMembershipsForCurrentUser/"
         }
     }
@@ -37,7 +37,7 @@ enum UserMethods: EndpointConfiguration {
     var parameters: BasicDictionary? {
         switch self {
         case .searchPlayer, .currentUserInfo: return nil
-        case .infoRequest( _, _, let requestType): return ["components": "\(requestType.componentValue)"]
+        case .infoRequest( _, _, let requestType, _): return ["components": "\(requestType.componentValue)"]
         }
     }
     
@@ -47,8 +47,8 @@ enum UserMethods: EndpointConfiguration {
     
     var headers: [String : String]? {
         switch self {
-        case .searchPlayer, .infoRequest: return [headerApiDestiny: destinyApiKey]
-        case .currentUserInfo: return [headerApiDestiny: destinyApiKey, "Authorization": "Bearer \(CurrentSession.shared.token!.access_token)"]
+        case .searchPlayer: return [headerApiDestiny: destinyApiKey]
+        case .currentUserInfo, .infoRequest: return [headerApiDestiny: destinyApiKey, "Authorization": "Bearer \(CurrentSession.shared.token!.access_token)"]
         }
     }
 }
@@ -91,17 +91,23 @@ struct UserEndpoints {
         }
     }
     
-    static func getUser(infoType infoRequested: UserInfoType, forPlatform platform: Int, userId: String, completion: @escaping ((_ userInfo: EntityDictionary?,_ error: NSError?) -> Void )) {
-        let infoRequest = UserMethods.infoRequest(platformType: platform, id: userId, infoType: infoRequested)
+    static func getUser(infoType infoRequested: UserInfoType, itemRequested: String = "", forPlatform platform: Int, userId: String, completion: @escaping ((_ userInfo: EntityDictionary?, _ error: NSError?) -> Void )) {
+        let infoRequest = UserMethods.infoRequest(platformType: platform, id: userId, infoType: infoRequested, itemRequested: itemRequested)
         WSAPI.shared.callService(url: infoRequest.fullPath, method: infoRequest.method, parameters: infoRequest.parameters, param_Encoding: infoRequest.encoding?.parameterEncoding, headers: infoRequest.headers) { response, error in
             if error != nil {
                 completion(nil, error)
             } else {
-                guard let responseInfo = try? JSONSerialization.jsonObject(with: response!, options: []) as! EntityDictionary, let responseData = responseInfo["Response"] as? EntityDictionary, let infoDictionary = responseData[infoRequested.keyword] as? EntityDictionary else {
+                guard let responseInfo = try? JSONSerialization.jsonObject(with: response!, options: []) as! EntityDictionary else {
                     completion(nil, NSError(domain: "LibraryApi", code: -3, userInfo: nil))
                     return
                 }
-                completion(infoDictionary, nil)
+                
+                guard let responseData = responseInfo["Response"] as? EntityDictionary else {
+                    completion(nil, NSError(domain: "LibraryApi", code: -3, userInfo: nil))
+                    return
+                }
+                
+                completion(responseData, nil)
             }
         }
         

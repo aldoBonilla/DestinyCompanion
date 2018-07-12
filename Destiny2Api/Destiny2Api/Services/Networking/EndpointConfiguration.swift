@@ -15,20 +15,24 @@ enum UserInfoType {
     case characterInventories
     case characterEquipment
     case itemBaseInfo
+    case equipmentSlot
     
-    var componentValue: Int {
+    var componentValue: String {
         switch self {
-        case .profileVault: return 102
-        case .character: return 200
-        case .characterInventories: return 200
-        case .characterEquipment: return 205
-        case .itemBaseInfo: return 300
+        case .profileVault: return "102"
+        case .character: return "102, 200, 201, 205"
+        case .characterInventories: return "201"
+        case .characterEquipment: return "205"
+        case .itemBaseInfo: return "300"
+        default: return ""
         }
     }
     
     var keyword: String {
         switch self {
         case .character: return "characters"
+        case .characterInventories: return "inventory"
+        case .itemBaseInfo: return "instance"
         default: return ""
         }
     }
@@ -46,6 +50,7 @@ enum UserInfoType {
         
         switch self {
         case .itemBaseInfo: return "DestinyInventoryItemDefinition/"
+        case .equipmentSlot: return "DestinyEquipmentSlotDefinition/"
         default: return ""
         }
     }

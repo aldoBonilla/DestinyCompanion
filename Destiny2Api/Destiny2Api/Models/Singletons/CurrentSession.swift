@@ -14,6 +14,7 @@ class CurrentSession {
     
     public private(set) var token: Token? = nil
     public private(set) var user: User? = nil
+    public private(set) var profileVault: [InventoryItem]? = nil
     
     func update(token: Token?) {
         self.token = token
@@ -21,6 +22,10 @@ class CurrentSession {
     
     func update(user: User?) {
         self.user = user
+    }
+    
+    func update(vault: [InventoryItem]?) {
+        self.profileVault = vault
     }
     
     func cleanSession() {

@@ -16,12 +16,18 @@
 		CA351899200FD76B00F5AABC /* UserEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA351898200FD76B00F5AABC /* UserEndpoints.swift */; };
 		CA3518A0200FE58800F5AABC /* EntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35189F200FE58800F5AABC /* EntityProtocol.swift */; };
 		CA3518A2200FE86700F5AABC /* UserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3518A1200FE86700F5AABC /* UserWorker.swift */; };
+		CA487AFB20F5149F00E8590B /* Dictionary_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA487AFA20F5149F00E8590B /* Dictionary_Extension.swift */; };
 		CAD2434320ED881400F68B2E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434220ED881400F68B2E /* Character.swift */; };
 		CAD2434520ED8AFD00F68B2E /* ServiceEntitiesEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434420ED8AFD00F68B2E /* ServiceEntitiesEnums.swift */; };
 		CAD2434920ED98F300F68B2E /* CharacterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434820ED98F300F68B2E /* CharacterTableViewController.swift */; };
 		CAD2434E20EDAAA200F68B2E /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434D20EDAAA200F68B2E /* CharacterTableViewCell.swift */; };
 		CAD2437620EED6BD00F68B2E /* ManifestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2437520EED6BD00F68B2E /* ManifestEndpoint.swift */; };
 		CAD2437920EEDE9300F68B2E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2437820EEDE9300F68B2E /* Item.swift */; };
+		CAD2437B20F3BCB700F68B2E /* ItemWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2437A20F3BCB700F68B2E /* ItemWorker.swift */; };
+		CAD2437D20F3C21200F68B2E /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2437C20F3C21200F68B2E /* InventoryItem.swift */; };
+		CAD2437F20F3C7C000F68B2E /* ItemInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2437E20F3C7C000F68B2E /* ItemInstance.swift */; };
+		CAD2438120F3D0BB00F68B2E /* ItemManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2438020F3D0BB00F68B2E /* ItemManifest.swift */; };
+		CAD2438320F3ECD900F68B2E /* CharacterInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2438220F3ECD900F68B2E /* CharacterInventoryViewController.swift */; };
 		CAF5A0E220EC2779001F4C30 /* LoginEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0E120EC2779001F4C30 /* LoginEndpoints.swift */; };
 		CAF5A0E920EC2DFF001F4C30 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0E720EC2DFF001F4C30 /* User.swift */; };
 		CAF5A0EB20EC2E0C001F4C30 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0EA20EC2E0C001F4C30 /* Token.swift */; };
@@ -50,12 +56,18 @@
 		CA351898200FD76B00F5AABC /* UserEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoints.swift; sourceTree = "<group>"; };
 		CA35189F200FE58800F5AABC /* EntityProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityProtocol.swift; sourceTree = "<group>"; };
 		CA3518A1200FE86700F5AABC /* UserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWorker.swift; sourceTree = "<group>"; };
+		CA487AFA20F5149F00E8590B /* Dictionary_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary_Extension.swift; sourceTree = "<group>"; };
 		CAD2434220ED881400F68B2E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		CAD2434420ED8AFD00F68B2E /* ServiceEntitiesEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEntitiesEnums.swift; sourceTree = "<group>"; };
 		CAD2434820ED98F300F68B2E /* CharacterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewController.swift; sourceTree = "<group>"; };
 		CAD2434D20EDAAA200F68B2E /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		CAD2437520EED6BD00F68B2E /* ManifestEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestEndpoint.swift; sourceTree = "<group>"; };
 		CAD2437820EEDE9300F68B2E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		CAD2437A20F3BCB700F68B2E /* ItemWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemWorker.swift; sourceTree = "<group>"; };
+		CAD2437C20F3C21200F68B2E /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
+		CAD2437E20F3C7C000F68B2E /* ItemInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInstance.swift; sourceTree = "<group>"; };
+		CAD2438020F3D0BB00F68B2E /* ItemManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManifest.swift; sourceTree = "<group>"; };
+		CAD2438220F3ECD900F68B2E /* CharacterInventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInventoryViewController.swift; sourceTree = "<group>"; };
 		CAF5A0E120EC2779001F4C30 /* LoginEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndpoints.swift; sourceTree = "<group>"; };
 		CAF5A0E720EC2DFF001F4C30 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CAF5A0EA20EC2E0C001F4C30 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -114,6 +126,7 @@
 		CA35187F200FB37A00F5AABC /* Destiny2Api */ = {
 			isa = PBXGroup;
 			children = (
+				CA487AF720F5126A00E8590B /* Extensions */,
 				CAF5A0F620EC745A001F4C30 /* Utilities */,
 				CA351892200FB9FB00F5AABC /* Services */,
 				CA35189A200FE3D800F5AABC /* Models */,
@@ -165,8 +178,33 @@
 			children = (
 				CAF5A0EE20EC35EF001F4C30 /* LoginWorker.swift */,
 				CA3518A1200FE86700F5AABC /* UserWorker.swift */,
+				CAD2437A20F3BCB700F68B2E /* ItemWorker.swift */,
 			);
 			path = Workers;
+			sourceTree = "<group>";
+		};
+		CA487AF720F5126A00E8590B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CA487AF820F5126A00E8590B /* UIKit */,
+				CA487AF920F5126A00E8590B /* Foundation */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CA487AF820F5126A00E8590B /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		CA487AF920F5126A00E8590B /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				CA487AFA20F5149F00E8590B /* Dictionary_Extension.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		CAD2434120ED880800F68B2E /* Character */ = {
@@ -189,6 +227,9 @@
 			isa = PBXGroup;
 			children = (
 				CAD2437820EEDE9300F68B2E /* Item.swift */,
+				CAD2437C20F3C21200F68B2E /* InventoryItem.swift */,
+				CAD2437E20F3C7C000F68B2E /* ItemInstance.swift */,
+				CAD2438020F3D0BB00F68B2E /* ItemManifest.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -302,6 +343,7 @@
 			children = (
 				CAD2434C20EDAA8800F68B2E /* Cells */,
 				CAD2434820ED98F300F68B2E /* CharacterTableViewController.swift */,
+				CAD2438220F3ECD900F68B2E /* CharacterInventoryViewController.swift */,
 			);
 			path = CharacterControllers;
 			sourceTree = "<group>";
@@ -454,19 +496,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA351883200FB37A00F5AABC /* ViewController.swift in Sources */,
+				CAD2438320F3ECD900F68B2E /* CharacterInventoryViewController.swift in Sources */,
 				CAD2434920ED98F300F68B2E /* CharacterTableViewController.swift in Sources */,
+				CA487AFB20F5149F00E8590B /* Dictionary_Extension.swift in Sources */,
 				CAF5A0F220EC3902001F4C30 /* RealmApi.swift in Sources */,
+				CAD2437D20F3C21200F68B2E /* InventoryItem.swift in Sources */,
 				CAD2434520ED8AFD00F68B2E /* ServiceEntitiesEnums.swift in Sources */,
 				CAF5A0EB20EC2E0C001F4C30 /* Token.swift in Sources */,
 				CA351881200FB37A00F5AABC /* AppDelegate.swift in Sources */,
 				CAD2437920EEDE9300F68B2E /* Item.swift in Sources */,
 				CA3518A0200FE58800F5AABC /* EntityProtocol.swift in Sources */,
 				CAD2434E20EDAAA200F68B2E /* CharacterTableViewCell.swift in Sources */,
+				CAD2437F20F3C7C000F68B2E /* ItemInstance.swift in Sources */,
+				CAD2438120F3D0BB00F68B2E /* ItemManifest.swift in Sources */,
 				CAF5A10920ED4B40001F4C30 /* ClanManagmentRootViewController.swift in Sources */,
 				CAF5A0ED20EC2E2B001F4C30 /* Token_Persistance.swift in Sources */,
 				CAD2437620EED6BD00F68B2E /* ManifestEndpoint.swift in Sources */,
 				CA3518A2200FE86700F5AABC /* UserWorker.swift in Sources */,
 				CAF5A0E220EC2779001F4C30 /* LoginEndpoints.swift in Sources */,
+				CAD2437B20F3BCB700F68B2E /* ItemWorker.swift in Sources */,
 				CAD2434320ED881400F68B2E /* Character.swift in Sources */,
 				CAF5A0E920EC2DFF001F4C30 /* User.swift in Sources */,
 				CA351899200FD76B00F5AABC /* UserEndpoints.swift in Sources */,
