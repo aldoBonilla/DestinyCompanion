@@ -25,12 +25,9 @@ class CharacterInventoryViewController: UIViewController {
     
     private func getFullItemsDescription() {
         
-        if character.hasRetrievedAllHisItems == false {
-            ItemWorker.getFullItems(character) { error in
-                print(error)
-            }
-        } else {
-            print("character has all his items already")
+        ItemWorker.getCharacterFullItemDescriptions(self.character) {
+            print(self.character.equipmentFullItem)
+            print(self.character.inventoryFullItem)
         }
     }
     

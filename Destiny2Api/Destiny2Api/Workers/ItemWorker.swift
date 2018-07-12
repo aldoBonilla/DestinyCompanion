@@ -10,64 +10,80 @@ import Foundation
 
 class ItemWorker {
     
-    static func getFullItems(_ character: Character, completion: @escaping((_ error: NSError?) ->Void)) {
     
-        var equipmentFullItem = [Item]()
+    static func getCharacterFullItemDescriptions(_ character: Character, completion: @escaping(() -> Void)) {
         
-        character.equipment.forEach { inventoryItem in
-            ItemWorker.getFullItem(inventoryItem) { item, error in
-                if let equippedItem = item {
-                    equipmentFullItem.append(equippedItem)
-                    if equipmentFullItem.count == character.equipment.count {
-                        character.equipmentFullItem = equipmentFullItem
-                        if character.hasRetrievedAllHisItems == true {
-                            completion(nil)
-                        }
-                    }
+        let group = DispatchGroup()
+        
+        group.enter()
+        ItemWorker.getFullItems(character.equipment) { fullItems in
+            character.equipmentFullItem = fullItems
+            group.leave()
+        }
+        
+        group.enter()
+        ItemWorker.getFullItems(character.inventory) { fullItems in
+            character.inventoryFullItem = fullItems
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            completion()
+        }
+    }
+    
+    static func getFullItems(_ items: [InventoryItem], completion: @escaping((_ fullItems: [Item]) ->Void)) {
+    
+        var fullItems = [Item]()
+        
+        let group = DispatchGroup()
+        
+        for inventoryItem in items {
+            group.enter()
+            ItemWorker.getFullItem(inventoryItem) { fullItem, error in
+                if fullItem != nil {
+                    fullItems.append(fullItem!)
                 }
+                group.leave()
             }
         }
         
-        var inventoryFullItem = [Item]()
-        
-        character.inventory.forEach { inventoryItem in
-            ItemWorker.getFullItem(inventoryItem) { item, error in
-                if let equippedItem = item {
-                    inventoryFullItem.append(equippedItem)
-                    if inventoryFullItem.count == character.inventory.count {
-                        character.inventoryFullItem = inventoryFullItem
-                        if character.hasRetrievedAllHisItems == true {
-                            completion(nil)
-                        }
-                    }
-                }
-            }
+        group.notify(queue: .main) {
+            completion(fullItems)
         }
     }
     
     
     static func getFullItem(_ itemInventory: InventoryItem, completion: @escaping((_ item: Item?, _ error: NSError?) -> Void )) {
         
-        ItemWorker.getItemManifest("\(itemInventory.itemHash)") { itemManifest, error in
-            
-            if itemManifest != nil {
-                if let instanceId = itemInventory.itemInstance {
-                    ItemWorker.getItemInstance(instanceId) { instance, error in
-                        if instance != nil {
-                            let item = Item(itemInventory: itemInventory, itemInstance: instance!, itemManifest: itemManifest!)
-                            completion(item, nil)
-                        } else {
-                            completion(nil, error)
-                        }
-                    }
-                } else {
-                    let item = Item(itemInventory: itemInventory, itemManifest: itemManifest!)
-                    completion(item, nil)
-                }
+        var manifest: ItemManifest?
+        var instance: ItemInstance?
+        var error: NSError?
+        
+        let group = DispatchGroup()
+        group.enter()
+        ItemWorker.getItemManifest("\(itemInventory.itemHash)") { itemManifest, webError in
+            manifest = itemManifest
+            error = webError
+            group.leave()
+        }
+        
+        if let instanceId = itemInventory.itemInstance {
+            group.enter()
+            ItemWorker.getItemInstance(instanceId) { itemInstance, webError in
+                instance = itemInstance
+                error = webError
+                group.leave()
+            }
+        }
+        
+        group.notify(queue: .main) {
+            if manifest != nil {
+                let fullItem = Item(itemInventory: itemInventory, itemInstance: instance, itemManifest: manifest!)
+                completion(fullItem, nil)
             } else {
                 completion(nil, error)
             }
-            
         }
     }
     
