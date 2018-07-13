@@ -21,22 +21,6 @@ class CharacterTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.addBackground()
-    }
-    
-    private func addBackground() {
-        
-        let backgroundImage = UIImage(named: "charactersBackground")
-        let imageView = UIImageView(image: backgroundImage)
-        imageView.contentMode = .scaleAspectFit
-        
-        self.tableView.backgroundColor = UIColor.lightGray
-        self.tableView.backgroundView = UIImageView(image: backgroundImage)
-        
-        let blurEffect = UIBlurEffect(style: .light)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = imageView.bounds
-        imageView.addSubview(blurView)
     }
     
     @objc private func getCharacters() {
@@ -71,10 +55,6 @@ class CharacterTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters.count + 1
-    }
-
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.clear
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

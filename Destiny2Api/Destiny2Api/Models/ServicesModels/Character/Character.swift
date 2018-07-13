@@ -6,7 +6,7 @@
 //  Copyright © 2018 Aldo Rogelio Bonilla  Guerrero. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class Character: EntityProtocol, CustomStringConvertible, Hashable {
     
@@ -16,6 +16,7 @@ final class Character: EntityProtocol, CustomStringConvertible, Hashable {
     let classType: CharacterClass
     let emblemPath: String
     let emblemBackgroundPath: String
+    let emblemColor: UIColor?
     let level: Int
     let percentToNextLevel: Double
     var equipment = [InventoryItem]()
@@ -41,6 +42,7 @@ final class Character: EntityProtocol, CustomStringConvertible, Hashable {
         self.classType = CharacterClass(rawValue: classRaw) ?? .unknown
         self.emblemPath = emblem
         self.emblemBackgroundPath = emblemBackground
+        if let colorDict = dictionary["emblemColor"] as? EntityDictionary { self.emblemColor = UIColor(dictionary: colorDict) } else { self.emblemColor = nil }
         self.level = level
         self.percentToNextLevel = progression
     }

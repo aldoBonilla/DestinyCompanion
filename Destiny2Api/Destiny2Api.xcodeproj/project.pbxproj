@@ -17,6 +17,7 @@
 		CA3518A0200FE58800F5AABC /* EntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35189F200FE58800F5AABC /* EntityProtocol.swift */; };
 		CA3518A2200FE86700F5AABC /* UserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3518A1200FE86700F5AABC /* UserWorker.swift */; };
 		CA487AFB20F5149F00E8590B /* Dictionary_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA487AFA20F5149F00E8590B /* Dictionary_Extension.swift */; };
+		CA487B0220F9062A00E8590B /* Color_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA487B0120F9062A00E8590B /* Color_Extension.swift */; };
 		CAD2434320ED881400F68B2E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434220ED881400F68B2E /* Character.swift */; };
 		CAD2434520ED8AFD00F68B2E /* ServiceEntitiesEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434420ED8AFD00F68B2E /* ServiceEntitiesEnums.swift */; };
 		CAD2434920ED98F300F68B2E /* CharacterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434820ED98F300F68B2E /* CharacterTableViewController.swift */; };
@@ -57,6 +58,7 @@
 		CA35189F200FE58800F5AABC /* EntityProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityProtocol.swift; sourceTree = "<group>"; };
 		CA3518A1200FE86700F5AABC /* UserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWorker.swift; sourceTree = "<group>"; };
 		CA487AFA20F5149F00E8590B /* Dictionary_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary_Extension.swift; sourceTree = "<group>"; };
+		CA487B0120F9062A00E8590B /* Color_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color_Extension.swift; sourceTree = "<group>"; };
 		CAD2434220ED881400F68B2E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		CAD2434420ED8AFD00F68B2E /* ServiceEntitiesEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEntitiesEnums.swift; sourceTree = "<group>"; };
 		CAD2434820ED98F300F68B2E /* CharacterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		CA487AF820F5126A00E8590B /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				CA487B0120F9062A00E8590B /* Color_Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				CA351897200FBED600F5AABC /* EndpointConfiguration.swift in Sources */,
 				CAF5A0EF20EC35EF001F4C30 /* LoginWorker.swift in Sources */,
 				CAF5A0F820EC7468001F4C30 /* AlertsUtility.swift in Sources */,
+				CA487B0220F9062A00E8590B /* Color_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

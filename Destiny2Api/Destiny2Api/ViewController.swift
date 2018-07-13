@@ -57,8 +57,9 @@ class ViewController: UIViewController {
                 showSimpleAlertWithTitle(title: "Error", message: workerError.description, viewController: self)
             } else {
                 DispatchQueue.main.async {
-                    self.safariVC!.dismiss(animated: true, completion: nil)
-                    self.getUserInfo()
+                    self.safariVC!.dismiss(animated: true) {
+                        self.getUserInfo()
+                    }
                 }
             }
         }

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Aldo Rogelio Bonilla  Guerrero. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class Item: EntityProtocol, CustomStringConvertible, Hashable {
     
@@ -21,17 +21,15 @@ final class Item: EntityProtocol, CustomStringConvertible, Hashable {
     let about: String
     let name: String
     let icon: String?
-    let color: (red: Int, green: Int, blue: Int, alpha: Int)
-    let screenshot: String
+    let color: UIColor?
+    let screenshot: String?
     
     init(dictionary: EntityDictionary) throws {
         guard let hash = dictionary["hash"] as? Int,
               let locationInt = dictionary["itemLocation"] as? Int,
               let lockable = dictionary["lockable"] as? Bool,
               let about = dictionary["description"] as? String,
-              let name = dictionary["name"] as? String,
-              let colorDict = dictionary["backgroundColor"] as? EntityDictionary,
-              let screenshot = dictionary["screensho"] as? String else {
+              let name = dictionary["name"] as? String else {
                 throw EntityNetworkingError.entityCantBeCreated(reason: "Key value missing")
         }
         
@@ -46,13 +44,8 @@ final class Item: EntityProtocol, CustomStringConvertible, Hashable {
         self.about = about
         self.name = name
         self.icon = dictionary["icon"] as? String
-        if let red = colorDict["red"] as? Int, let green = colorDict["green"] as? Int, let blue = colorDict["blue"] as? Int, let alpha = colorDict["alpha"] as? Int {
-            self.color = (red: red, green: green, blue: blue, alpha: alpha)
-        } else {
-            self.color = (red: 0, green: 0, blue: 0, alpha: 0)
-        }
-        self.screenshot = screenshot
-        
+        if let colorDict = dictionary["backgroundColor"] as? EntityDictionary { self.color = UIColor(dictionary: colorDict) } else { self.color = nil }
+        self.screenshot = dictionary["screenshot"] as? String
     }
     
     init(itemInventory: InventoryItem, itemInstance: ItemInstance? = nil, itemManifest: ItemManifest) {

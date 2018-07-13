@@ -18,7 +18,9 @@ class CharacterTableViewCell: UITableViewCell {
     @IBOutlet weak var progress: UIView!
     @IBOutlet weak var progressConstraint: NSLayoutConstraint!
     @IBOutlet weak var imgBanner: UIImageView!
-
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var bgImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         progressConstraint.constant = 0.0
@@ -36,7 +38,10 @@ class CharacterTableViewCell: UITableViewCell {
         lblLight.text = "\(character.light)"
         if let urlBanner = character.urlBannerBackground {
             imgBanner.kf.setImage(with: urlBanner)
+            bgImage.kf.setImage(with: urlBanner)
         }
+        
+        self.backgroundColor = character.emblemColor
         
         UIView.animate(withDuration: 1.5) {
             self.progressConstraint.constant = self.progressContainer.frame.width * CGFloat(character.percentToNextLevel / 100)
