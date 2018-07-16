@@ -16,6 +16,7 @@ struct InventoryItem: EntityProtocol, CustomStringConvertible, Hashable {
     let location: ItemLocation
     let lockable: Bool
     let state: Int
+    let bucketHash: Int
     
     init(dictionary: EntityDictionary) throws {
         
@@ -23,7 +24,8 @@ struct InventoryItem: EntityProtocol, CustomStringConvertible, Hashable {
               let quantity = dictionary["quantity"] as? Int,
               let locationInt = dictionary["location"] as? Int,
               let lockable = dictionary["lockable"] as? Bool,
-              let state = dictionary["state"] as? Int else {
+              let state = dictionary["state"] as? Int,
+              let bucketHash = dictionary["bucketHash"] as? Int else {
                 throw EntityNetworkingError.entityCantBeCreated(reason: "Key value missing")
         }
         
@@ -33,16 +35,15 @@ struct InventoryItem: EntityProtocol, CustomStringConvertible, Hashable {
         self.location = ItemLocation(rawValue: locationInt) ?? .unknown
         self.lockable = lockable
         self.state = state
+        self.bucketHash = bucketHash
     }
-    
-    
     
     var description: String {
         return "Item hash: \(itemHash)"
     }
     
     var hashValue: Int {
-        return itemHash.hashValue
+        return itemHash
     }
     
     static func == (lhs: InventoryItem, rhs: InventoryItem) -> Bool {

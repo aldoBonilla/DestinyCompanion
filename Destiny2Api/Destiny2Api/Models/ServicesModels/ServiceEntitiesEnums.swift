@@ -33,7 +33,7 @@ enum CharacterClass: Int {
     case warlock
     case unknown
     
-    var description: String {
+    var name: String {
         switch self {
         case .titan: return "Titan"
         case .hunter: return "Hunter"
@@ -66,4 +66,13 @@ enum ItemRarity: Int {
     case rare
     case legendary
     case exotic
+}
+
+enum BucketCategory: Int {
+    
+    case invisible
+    case item
+    case currency
+    case equippable
+    case ignored
 }

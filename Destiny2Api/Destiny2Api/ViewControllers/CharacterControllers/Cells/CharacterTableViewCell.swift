@@ -28,12 +28,32 @@ class CharacterTableViewCell: UITableViewCell {
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+        let colorContainer = self.progressContainer.backgroundColor
+        let colorProgress = self.progress.backgroundColor
+        
         super.setSelected(selected, animated: animated)
+        
+        if selected == true {
+            self.progressContainer.backgroundColor = colorContainer
+            self.progress.backgroundColor = colorProgress
+        }
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        let colorContainer = self.progressContainer.backgroundColor
+        let colorProgress = self.progress.backgroundColor
+        
+        super.setHighlighted(highlighted, animated: animated)
+        
+        if highlighted == true {
+            self.progressContainer.backgroundColor = colorContainer
+            self.progress.backgroundColor = colorProgress
+        }
     }
     
     public func setup(character: Character) {
         
-        lblClass.text = character.classType.description
+        lblClass.text = character.classType.name
         lblLevel.text = "\(character.level)"
         lblLight.text = "\(character.light)"
         if let urlBanner = character.urlBannerBackground {

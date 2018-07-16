@@ -16,6 +16,7 @@ enum UserInfoType {
     case characterEquipment
     case itemBaseInfo
     case equipmentSlot
+    case itemBucket
     
     var componentValue: String {
         switch self {
@@ -51,6 +52,7 @@ enum UserInfoType {
         switch self {
         case .itemBaseInfo: return "DestinyInventoryItemDefinition/"
         case .equipmentSlot: return "DestinyEquipmentSlotDefinition/"
+        case .itemBucket: return "DestinyInventoryBucketDefinition/"
         default: return ""
         }
     }

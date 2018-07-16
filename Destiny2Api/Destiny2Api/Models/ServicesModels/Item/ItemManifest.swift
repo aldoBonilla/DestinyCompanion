@@ -29,6 +29,14 @@ struct ItemManifest: EntityProtocol, CustomStringConvertible {
         if let colorDict = dictionary["backgroundColor"] as? EntityDictionary { self.color = UIColor(dictionary: colorDict) } else { self.color = nil }
         self.screenshot = dictionary["screenshot"] as? String
     }
+    
+    var urlItemImage: URL? {
+        if icon != nil {
+            return URL(string: "\(Endpoint().bungieImages)\(icon!)")
+        }
+        return nil
+        
+    }
 
     var description: String {
         return "Item name: \(name)"

@@ -80,7 +80,7 @@ class CharacterTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let characterVC = segue.destination as? CharacterInventoryViewController, let character = sender as? Character else { return }
-        characterVC.character = character
-        
+        characterVC.characterSelected = character
+        characterVC.characters = characters
     }
 }

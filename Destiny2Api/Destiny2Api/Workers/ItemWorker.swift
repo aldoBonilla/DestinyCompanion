@@ -10,6 +10,18 @@ import Foundation
 
 class ItemWorker {
     
+    static func orderBucketsFor(character: Character, category: ItemUICategory) -> [(name: String, sectionItems: [Item]?)] {
+        
+        var uiSections = [(name: String, sectionItems: [Item]?)]()
+        
+        category.sections.forEach { section in
+            let sectionItems = character.inventoryFullItem?.filter({$0.inventory.bucketHash == section.hash})
+            let thisUISection = (name: section.name, sectionItems:sectionItems)
+            uiSections.append(thisUISection)
+        }
+        
+        return uiSections
+    }
     
     static func getCharacterFullItemDescriptions(_ character: Character, completion: @escaping(() -> Void)) {
         
@@ -78,7 +90,7 @@ class ItemWorker {
         }
         
         group.notify(queue: .main) {
-            if manifest != nil {
+            if error == nil {
                 let fullItem = Item(itemInventory: itemInventory, itemInstance: instance, itemManifest: manifest!)
                 completion(fullItem, nil)
             } else {
@@ -107,13 +119,18 @@ class ItemWorker {
     static func getItemInstance(_ item: String, _ completion: @escaping((_ inventoryItems: ItemInstance?, _ error: NSError?) -> Void)) {
         
         guard let platform = CurrentSession.shared.user?.platform, let userId = CurrentSession.shared.user?.id else {
-            completion(nil, NSError(domain: "Worker", code: 100, userInfo: ["description": "User data is corrupted"]))
+            completion(nil, NSError(domain: "Worker", code: 5, userInfo: ["description": "IncorrectCredentials"]))
             return
         }
         
         UserEndpoints.getUser(infoType: .itemBaseInfo, itemRequested: item,forPlatform: platform, userId: userId) { response, error in
             if response != nil {
-                guard let data = response!["data"] as? EntityDictionary else {
+                guard let instanceDict = response!["instance"] as? EntityDictionary else {
+                    completion(nil, NSError(domain: "Worker", code: 100, userInfo: ["description": "User data is corrupted"]))
+                    return
+                }
+                
+                guard let data = instanceDict["data"] as? EntityDictionary else {
                     completion(nil, NSError(domain: "Worker", code: 100, userInfo: ["description": "User data is corrupted"]))
                     return
                 }
@@ -121,6 +138,23 @@ class ItemWorker {
                 do {
                     let item = try ItemInstance(dictionary: data)
                     completion(item, nil)
+                } catch {
+                    completion(nil, NSError(domain: "Worker", code: 100, userInfo: ["description": "User data is corrupted"]))
+                }
+                
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
+    static func getBucketManifest(_ hash: String, _ completion: @escaping((_ manifestItem: ItemBucket?, _ error: NSError?) -> Void )) {
+        
+        ManifestEndpoints.getContent(contentType: .itemBucket, hash: hash) { response, error in
+            if response != nil {
+                do {
+                    let bucket = try ItemBucket(dictionary: response!)
+                    completion(bucket, nil)
                 } catch {
                     completion(nil, NSError(domain: "Worker", code: 100, userInfo: ["description": "User data is corrupted"]))
                 }

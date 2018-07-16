@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1D4692B535466D6B3D4C77A0 /* Pods_Destiny2Api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BAC47E53314CBE3C02E3588 /* Pods_Destiny2Api.framework */; };
+		CA1C187D20F922B60017C16B /* CharacterSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C187C20F922B60017C16B /* CharacterSelectorViewController.swift */; };
+		CA1C187F20F9337C0017C16B /* ItemsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C187E20F9337C0017C16B /* ItemsCollectionViewController.swift */; };
+		CA1C188120F9338F0017C16B /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C188020F9338F0017C16B /* ItemCollectionViewCell.swift */; };
+		CA1C188320FCF38E0017C16B /* ItemBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C188220FCF38E0017C16B /* ItemBucket.swift */; };
+		CA2B5CE620FD594E005A24C5 /* ItemCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B5CE520FD594E005A24C5 /* ItemCollectionHeader.swift */; };
 		CA351881200FB37A00F5AABC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA351880200FB37A00F5AABC /* AppDelegate.swift */; };
 		CA351883200FB37A00F5AABC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA351882200FB37A00F5AABC /* ViewController.swift */; };
 		CA351888200FB37A00F5AABC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA351887200FB37A00F5AABC /* Assets.xcassets */; };
@@ -47,6 +52,11 @@
 /* Begin PBXFileReference section */
 		6BAC47E53314CBE3C02E3588 /* Pods_Destiny2Api.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Destiny2Api.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8698FCDCB57163F6818B1B9B /* Pods-Destiny2Api.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny2Api.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Destiny2Api/Pods-Destiny2Api.debug.xcconfig"; sourceTree = "<group>"; };
+		CA1C187C20F922B60017C16B /* CharacterSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectorViewController.swift; sourceTree = "<group>"; };
+		CA1C187E20F9337C0017C16B /* ItemsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCollectionViewController.swift; sourceTree = "<group>"; };
+		CA1C188020F9338F0017C16B /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		CA1C188220FCF38E0017C16B /* ItemBucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemBucket.swift; sourceTree = "<group>"; };
+		CA2B5CE520FD594E005A24C5 /* ItemCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionHeader.swift; sourceTree = "<group>"; };
 		CA35187D200FB37A00F5AABC /* Destiny2Api.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Destiny2Api.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA351880200FB37A00F5AABC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA351882200FB37A00F5AABC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				CAD2434D20EDAAA200F68B2E /* CharacterTableViewCell.swift */,
+				CA1C188020F9338F0017C16B /* ItemCollectionViewCell.swift */,
+				CA2B5CE520FD594E005A24C5 /* ItemCollectionHeader.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -233,6 +245,7 @@
 				CAD2437C20F3C21200F68B2E /* InventoryItem.swift */,
 				CAD2437E20F3C7C000F68B2E /* ItemInstance.swift */,
 				CAD2438020F3D0BB00F68B2E /* ItemManifest.swift */,
+				CA1C188220FCF38E0017C16B /* ItemBucket.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -347,6 +360,8 @@
 				CAD2434C20EDAA8800F68B2E /* Cells */,
 				CAD2434820ED98F300F68B2E /* CharacterTableViewController.swift */,
 				CAD2438220F3ECD900F68B2E /* CharacterInventoryViewController.swift */,
+				CA1C187C20F922B60017C16B /* CharacterSelectorViewController.swift */,
+				CA1C187E20F9337C0017C16B /* ItemsCollectionViewController.swift */,
 			);
 			path = CharacterControllers;
 			sourceTree = "<group>";
@@ -511,6 +526,7 @@
 				CA3518A0200FE58800F5AABC /* EntityProtocol.swift in Sources */,
 				CAD2434E20EDAAA200F68B2E /* CharacterTableViewCell.swift in Sources */,
 				CAD2437F20F3C7C000F68B2E /* ItemInstance.swift in Sources */,
+				CA1C188120F9338F0017C16B /* ItemCollectionViewCell.swift in Sources */,
 				CAD2438120F3D0BB00F68B2E /* ItemManifest.swift in Sources */,
 				CAF5A10920ED4B40001F4C30 /* ClanManagmentRootViewController.swift in Sources */,
 				CAF5A0ED20EC2E2B001F4C30 /* Token_Persistance.swift in Sources */,
@@ -519,7 +535,11 @@
 				CAF5A0E220EC2779001F4C30 /* LoginEndpoints.swift in Sources */,
 				CAD2437B20F3BCB700F68B2E /* ItemWorker.swift in Sources */,
 				CAD2434320ED881400F68B2E /* Character.swift in Sources */,
+				CA1C187D20F922B60017C16B /* CharacterSelectorViewController.swift in Sources */,
+				CA2B5CE620FD594E005A24C5 /* ItemCollectionHeader.swift in Sources */,
 				CAF5A0E920EC2DFF001F4C30 /* User.swift in Sources */,
+				CA1C187F20F9337C0017C16B /* ItemsCollectionViewController.swift in Sources */,
+				CA1C188320FCF38E0017C16B /* ItemBucket.swift in Sources */,
 				CA351899200FD76B00F5AABC /* UserEndpoints.swift in Sources */,
 				CAF5A0F520EC6D8A001F4C30 /* CurrentSession.swift in Sources */,
 				CA351895200FB9FC00F5AABC /* WSAPI.swift in Sources */,
