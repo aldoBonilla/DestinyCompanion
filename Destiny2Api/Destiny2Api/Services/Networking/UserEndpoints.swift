@@ -48,7 +48,12 @@ enum UserMethods: EndpointConfiguration {
     var headers: [String : String]? {
         switch self {
         case .searchPlayer: return [headerApiDestiny: destinyApiKey]
-        case .currentUserInfo, .infoRequest: return [headerApiDestiny: destinyApiKey, "Authorization": "Bearer \(CurrentSession.shared.token!.access_token)"]
+        case .currentUserInfo: return [headerApiDestiny: destinyApiKey, "Authorization": "Bearer \(CurrentSession.shared.token!.access_token)"]
+        case .infoRequest(_, _, let requestType, _):
+            if requestType.privacyLvl == 2 {
+                return [headerApiDestiny: destinyApiKey, "Authorization": "Bearer \(CurrentSession.shared.token!.access_token)" ]
+            }
+            else {return [headerApiDestiny: destinyApiKey] }
         }
     }
 }
@@ -91,23 +96,20 @@ struct UserEndpoints {
         }
     }
     
-    static func getUser(infoType infoRequested: UserInfoType, itemRequested: String = "", forPlatform platform: Int, userId: String, completion: @escaping ((_ userInfo: EntityDictionary?, _ error: NSError?) -> Void )) {
+    static func requestInfo(infoType infoRequested: UserInfoType, itemRequested: String = "", forPlatform platform: Int, userId: String, completion: @escaping ((_ userInfo: EntityDictionary?, _ error: NSError?) -> Void )) {
         let infoRequest = UserMethods.infoRequest(platformType: platform, id: userId, infoType: infoRequested, itemRequested: itemRequested)
         WSAPI.shared.callService(url: infoRequest.fullPath, method: infoRequest.method, parameters: infoRequest.parameters, param_Encoding: infoRequest.encoding?.parameterEncoding, headers: infoRequest.headers) { response, error in
             if error != nil {
                 completion(nil, error)
             } else {
-                guard let responseInfo = try? JSONSerialization.jsonObject(with: response!, options: []) as! EntityDictionary else {
+                guard let responseInfo = try? JSONSerialization.jsonObject(with: response!, options: []) as! EntityDictionary,
+                      let responseData = responseInfo["Response"] as? EntityDictionary,
+                      let requestedDict = responseData[infoRequested.keyword] as? EntityDictionary,
+                      let requestedData = requestedDict["data"] as? EntityDictionary else {
                     completion(nil, NSError(domain: "LibraryApi", code: -3, userInfo: nil))
                     return
                 }
-                
-                guard let responseData = responseInfo["Response"] as? EntityDictionary else {
-                    completion(nil, NSError(domain: "LibraryApi", code: -3, userInfo: nil))
-                    return
-                }
-                
-                completion(responseData, nil)
+                completion(requestedData, nil)
             }
         }
         

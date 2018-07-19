@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class Character: EntityProtocol, CustomStringConvertible, Hashable {
+struct Character: EntityProtocol, CustomStringConvertible, Hashable {
     
     let id: String
     let light: Int
@@ -19,10 +19,6 @@ final class Character: EntityProtocol, CustomStringConvertible, Hashable {
     let emblemColor: UIColor?
     let level: Int
     let percentToNextLevel: Double
-    var equipment = [InventoryItem]()
-    var inventory = [InventoryItem]()
-    var equipmentFullItem: [Item]?
-    var inventoryFullItem: [Item]?
     
     init(dictionary: EntityDictionary) throws {
         guard let id = dictionary["characterId"] as? String,
@@ -74,13 +70,5 @@ final class Character: EntityProtocol, CustomStringConvertible, Hashable {
             "baseCharacterLevel": level,
             "percentToNextLevel": percentToNextLevel
         ]
-    }
-    
-    var hasRetrievedAllHisItems: Bool {
-        if equipment.count == equipmentFullItem?.count && inventory.count == inventoryFullItem?.count {
-            return true
-        } else {
-            return false
-        }
     }
 }

@@ -8,17 +8,22 @@
 
 import UIKit
 
+protocol ItemsCVCDelegate {
+    func showDetailOf(item: ItemUI)
+}
+
+
 private let reuseIdentifier = "itemCell"
 
 class ItemsCollectionViewController: UICollectionViewController {
 
     var characterSelected: Character!
-    var currentCategory: ItemUICategory!
-    var displayData = [(name: String, sectionItems: [Item]?)]()
+    var displayData = [(name: String, sectionItems: [ItemUI])]()
+    var delegate: ItemsCVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentCategory = .weapon
+        collectionView?.backgroundColor = characterSelected.emblemColor
         // Do any additional setup after loading the view.
     }
 
@@ -27,19 +32,11 @@ class ItemsCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    public func reloadInventorieFor(character: Character) {
-        self.characterSelected = character
-        self.displayData = ItemWorker.orderBucketsFor(character: characterSelected, category: currentCategory)
-        collectionView?.backgroundColor = character.emblemColor
+    public func reloadInventorieWithDisplayData(displayData: [(name: String, sectionItems: [ItemUI])]) {
+        self.displayData = displayData
         self.collectionView?.reloadData()
     }
 
-    public func reloadInventorieFor(category: ItemUICategory) {
-        self.currentCategory = category
-        self.displayData = ItemWorker.orderBucketsFor(character: characterSelected, category: currentCategory)
-        self.collectionView?.reloadData()
-    }
-    
     /*
     // MARK: - Navigation
 
@@ -59,7 +56,7 @@ class ItemsCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let thisSection = displayData[section]
-        return thisSection.sectionItems?.count ?? 0
+        return thisSection.sectionItems.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -72,11 +69,15 @@ class ItemsCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ItemCollectionViewCell
     
         let thisSection = displayData[indexPath.section]
-        if let thisItem = thisSection.sectionItems?[indexPath.row] {
-            cell.setupWith(item: thisItem)
-        }
+        let thisItem = thisSection.sectionItems[indexPath.row]
+        cell.setupWith(item: thisItem)
         
         return cell
     }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let thisSection = displayData[indexPath.section]
+        let thisItem = thisSection.sectionItems[indexPath.row]
+        delegate?.showDetailOf(item: thisItem)
+    }
 }

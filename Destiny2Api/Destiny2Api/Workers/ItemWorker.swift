@@ -10,12 +10,12 @@ import Foundation
 
 class ItemWorker {
     
-    static func orderBucketsFor(character: Character, category: ItemUICategory) -> [(name: String, sectionItems: [Item]?)] {
+    static func orderBucketsFor(category: ItemUICategory, withItems items: [ItemUI]) -> [(name: String, sectionItems: [ItemUI])] {
         
-        var uiSections = [(name: String, sectionItems: [Item]?)]()
+        var uiSections = [(name: String, sectionItems: [ItemUI])]()
         
         category.sections.forEach { section in
-            let sectionItems = character.inventoryFullItem?.filter({$0.inventory.bucketHash == section.hash})
+            let sectionItems = items.filter({$0.inventory.bucketHash == section.rawValue})
             let thisUISection = (name: section.name, sectionItems:sectionItems)
             uiSections.append(thisUISection)
         }
@@ -23,36 +23,50 @@ class ItemWorker {
         return uiSections
     }
     
-    static func getCharacterFullItemDescriptions(_ character: Character, completion: @escaping(() -> Void)) {
+    static func getItemsFor(characterId: String, completion: @escaping((_ items: [ItemUI]) -> Void)) {
+        
+        var equipementItems = [ItemUI]()
+        var inventoryItems = [ItemUI]()
         
         let group = DispatchGroup()
-        
         group.enter()
-        ItemWorker.getFullItems(character.equipment) { fullItems in
-            character.equipmentFullItem = fullItems
-            group.leave()
-        }
-        
-        group.enter()
-        ItemWorker.getFullItems(character.inventory) { fullItems in
-            character.inventoryFullItem = fullItems
-            group.leave()
+//        UserWorker.getInvetoryItemsFrom(location: .equipment, forCharacter: characterId) { items, error in
+//            if items != nil {
+//                getFullItems(items!) { uiItems in
+//                    equipementItems = uiItems
+//                    group.leave()
+//                }
+//            } else {
+//                group.leave()
+//            }
+//        }
+//
+//        group.enter()
+        UserWorker.getInvetoryItemsFrom(location: .inventory, forCharacter: characterId) { items, error in
+            if items != nil {
+                getFullItems(items!) { uiItems in
+                    inventoryItems = uiItems
+                    group.leave()
+                }
+            } else {
+                group.leave()
+            }
         }
         
         group.notify(queue: .main) {
-            completion()
+            let totalItems = equipementItems + inventoryItems
+            completion(totalItems)
         }
     }
     
-    static func getFullItems(_ items: [InventoryItem], completion: @escaping((_ fullItems: [Item]) ->Void)) {
+    static func getFullItems(_ items: [InventoryItem], completion: @escaping((_ fullItems: [ItemUI]) ->Void)) {
     
-        var fullItems = [Item]()
-        
+        var fullItems = [ItemUI]()
         let group = DispatchGroup()
         
         for inventoryItem in items {
             group.enter()
-            ItemWorker.getFullItem(inventoryItem) { fullItem, error in
+            ItemWorker.getItemUI(inventoryItem) { fullItem, error in
                 if fullItem != nil {
                     fullItems.append(fullItem!)
                 }
@@ -66,7 +80,7 @@ class ItemWorker {
     }
     
     
-    static func getFullItem(_ itemInventory: InventoryItem, completion: @escaping((_ item: Item?, _ error: NSError?) -> Void )) {
+    static func getItemUI(_ itemInventory: InventoryItem, completion: @escaping((_ item: ItemUI?, _ error: NSError?) -> Void )) {
         
         var manifest: ItemManifest?
         var instance: ItemInstance?
@@ -74,13 +88,14 @@ class ItemWorker {
         
         let group = DispatchGroup()
         group.enter()
-        ItemWorker.getItemManifest("\(itemInventory.itemHash)") { itemManifest, webError in
-            manifest = itemManifest
-            error = webError
+        
+        ManifestWorker.getManifestFor(type: .item, hash: itemInventory.hash) { (entity: ItemManifest?, workerError) in
+            manifest = entity
+            error = workerError
             group.leave()
         }
         
-        if let instanceId = itemInventory.itemInstance {
+        if let instanceId = itemInventory.instance {
             group.enter()
             ItemWorker.getItemInstance(instanceId) { itemInstance, webError in
                 instance = itemInstance
@@ -90,8 +105,8 @@ class ItemWorker {
         }
         
         group.notify(queue: .main) {
-            if error == nil {
-                let fullItem = Item(itemInventory: itemInventory, itemInstance: instance, itemManifest: manifest!)
+            if manifest != nil {
+                let fullItem = ItemUI(itemInventory: itemInventory, itemInstance: instance, itemManifest: manifest!)
                 completion(fullItem, nil)
             } else {
                 completion(nil, error)
@@ -99,66 +114,68 @@ class ItemWorker {
         }
     }
     
-    static func getItemManifest(_ hash: String, _ completion: @escaping((_ manifestItem: ItemManifest?, _ error: NSError?) -> Void )) {
+    static func getItemInstance(_ instanceId: String, _ completion: @escaping((_ inventoryItems: ItemInstance?, _ error: NSError?) -> Void)) {
         
-        ManifestEndpoints.getContent(contentType: .itemBaseInfo, hash: hash) { response, error in
-            if response != nil {
+        UserEndpoints.requestInfo(infoType: .itemInstance, itemRequested: instanceId, forPlatform: CurrentSession.shared.userPlatform, userId: CurrentSession.shared.userMembership) { response, error in
+            
+            if let instanceDict = response {
                 do {
-                    let item = try ItemManifest(dictionary: response!)
+                    let item = try ItemInstance(dictionary: instanceDict)
                     completion(item, nil)
                 } catch {
                     completion(nil, NSError(domain: "Worker", code: 100, userInfo: ["description": "User data is corrupted"]))
                 }
-                
             } else {
+                completion(nil, error)
+            }
+            
+        }
+    }
+    
+    static func getPerksUIFor(_ instanceId: String, _ completion: @escaping((_ perks: [PerkUI]) -> Void )) {
+        ItemWorker.getPerksFor(instanceId) { wsPerks, error in
+            if wsPerks != nil {
+                let visiblePerks = wsPerks!.filter { $0.visible == true }
+                let group = DispatchGroup()
+                var uiPerks = [PerkUI]()
+                visiblePerks.forEach { perk in
+                    group.enter()
+                    getPerkUI(perk) { perkUI, error in
+                        if perkUI != nil {
+                            uiPerks.append(perkUI!)
+                        }
+                        group.leave()
+                    }
+                }
+                
+                group.notify(queue: .main) {
+                    completion(uiPerks)
+                }
+            } else {
+                completion([])
+            }
+        }
+    }
+    
+    static func getPerkUI(_ itemPerk: ItemPerk, _ completion: @escaping((_ perk: PerkUI?, _ error: NSError?) -> Void )) {
+        
+        ManifestWorker.getManifestFor(type: .perk, hash: itemPerk.hash) { (manifest: PerkManifest?, error) in
+            if manifest != nil {
+                let perkUI = PerkUI(name: manifest!.display.name, about: manifest!.display.about, icon: itemPerk.icon)
+                completion(perkUI, nil)
+            }
+            else {
                 completion(nil, error)
             }
         }
     }
     
-    static func getItemInstance(_ item: String, _ completion: @escaping((_ inventoryItems: ItemInstance?, _ error: NSError?) -> Void)) {
+    static func getPerksFor(_ instanceId: String, _ completion: @escaping((_ perks: [ItemPerk]?, _ error: NSError?) -> Void )) {
         
-        guard let platform = CurrentSession.shared.user?.platform, let userId = CurrentSession.shared.user?.id else {
-            completion(nil, NSError(domain: "Worker", code: 5, userInfo: ["description": "IncorrectCredentials"]))
-            return
-        }
-        
-        UserEndpoints.getUser(infoType: .itemBaseInfo, itemRequested: item,forPlatform: platform, userId: userId) { response, error in
-            if response != nil {
-                guard let instanceDict = response!["instance"] as? EntityDictionary else {
-                    completion(nil, NSError(domain: "Worker", code: 100, userInfo: ["description": "User data is corrupted"]))
-                    return
-                }
-                
-                guard let data = instanceDict["data"] as? EntityDictionary else {
-                    completion(nil, NSError(domain: "Worker", code: 100, userInfo: ["description": "User data is corrupted"]))
-                    return
-                }
-                
-                do {
-                    let item = try ItemInstance(dictionary: data)
-                    completion(item, nil)
-                } catch {
-                    completion(nil, NSError(domain: "Worker", code: 100, userInfo: ["description": "User data is corrupted"]))
-                }
-                
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-    
-    static func getBucketManifest(_ hash: String, _ completion: @escaping((_ manifestItem: ItemBucket?, _ error: NSError?) -> Void )) {
-        
-        ManifestEndpoints.getContent(contentType: .itemBucket, hash: hash) { response, error in
-            if response != nil {
-                do {
-                    let bucket = try ItemBucket(dictionary: response!)
-                    completion(bucket, nil)
-                } catch {
-                    completion(nil, NSError(domain: "Worker", code: 100, userInfo: ["description": "User data is corrupted"]))
-                }
-                
+        UserEndpoints.requestInfo(infoType: .itemInstancePerks, itemRequested: instanceId, forPlatform:  CurrentSession.shared.userPlatform, userId:  CurrentSession.shared.userMembership) { response, error in
+            if let perksData = response, let perksDicts = perksData["perks"] as? [EntityDictionary] {
+                let perks: [ItemPerk] = ItemPerk.initEntities(dictionaries: perksDicts)
+                completion(perks, nil)
             } else {
                 completion(nil, error)
             }

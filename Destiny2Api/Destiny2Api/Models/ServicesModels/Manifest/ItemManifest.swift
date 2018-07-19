@@ -9,37 +9,38 @@
 import UIKit
 
 struct ItemManifest: EntityProtocol, CustomStringConvertible {
-    
-    let about: String
-    let name: String
+
+    let display: DisplayManifest
+    let typeName: String
     let icon: String?
     let color: UIColor?
     let screenshot: String?
+    let statsGroupHash: Int?
     
     init(dictionary: EntityDictionary) throws {
         guard let displayProp = dictionary["displayProperties"] as? EntityDictionary,
-              let about = displayProp["description"] as? String,
-              let name = displayProp["name"] as? String else {
+              let displayManifest = try? DisplayManifest(dictionary: displayProp),
+              let typeName = dictionary["itemTypeDisplayName"] as? String else {
                 throw EntityNetworkingError.entityCantBeCreated(reason: "Key value missing")
         }
         
-        self.about = about
-        self.name = name
+        self.display = displayManifest
+        self.typeName = typeName
         self.icon = displayProp["icon"] as? String
         if let colorDict = dictionary["backgroundColor"] as? EntityDictionary { self.color = UIColor(dictionary: colorDict) } else { self.color = nil }
         self.screenshot = dictionary["screenshot"] as? String
+        if let statsDict = dictionary["stats"] as? EntityDictionary, let groupHash = statsDict["statGroupHash"] as? Int { self.statsGroupHash = groupHash } else { self.statsGroupHash = nil }
     }
     
-    var urlItemImage: URL? {
-        if icon != nil {
-            return URL(string: "\(Endpoint().bungieImages)\(icon!)")
+    var urlScreenshot: URL? {
+        if screenshot != nil {
+            return URL(string: "\(Endpoint().bungieImages)\(screenshot!)")
         }
         return nil
-        
     }
 
     var description: String {
-        return "Item name: \(name)"
+        return "Item name: \(display.name)"
     }
 
     var dictionary: EntityDictionary {

@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct ItemInstance: EntityProtocol, CustomStringConvertible {
+final class ItemInstance: EntityProtocol, CustomStringConvertible {
     
     let damageType: DamageType
-    let primaryStatValue: Int
-    let itemLevel: Int
+    let primaryStat: ItemStat
+    let level: Int
     let quality: Int
     let isEquipped: Bool
     let canEquip: Bool
@@ -20,8 +20,9 @@ struct ItemInstance: EntityProtocol, CustomStringConvertible {
     
     init(dictionary: EntityDictionary) throws {
         guard let damageTypeInt = dictionary["damageType"] as? Int,
-              let primaryStat = dictionary["primaryStat"] as? EntityDictionary, let value = primaryStat["value"] as? Int,
-              let itemLevel = dictionary["itemLevel"] as? Int,
+              let primaryStatDict = dictionary["primaryStat"] as? EntityDictionary,
+              let primaryStat = try? ItemStat(dictionary: primaryStatDict),
+              let level = dictionary["itemLevel"] as? Int,
               let quality = dictionary["quality"] as? Int,
               let isEquipped = dictionary["isEquipped"] as? Bool,
               let canEquip = dictionary["canEquip"] as? Bool,
@@ -30,19 +31,17 @@ struct ItemInstance: EntityProtocol, CustomStringConvertible {
         }
         
         self.damageType = DamageType(rawValue: damageTypeInt) ?? .none
-        self.primaryStatValue = value
-        self.itemLevel = itemLevel
+        self.primaryStat = primaryStat
+        self.level = level
         self.quality = quality
         self.isEquipped = isEquipped
         self.canEquip = canEquip
         self.equipRequiredLevel = requiredLevel
-        
     }
     
     var description: String {
-        return "Item light level: \(primaryStatValue)"
+        return "Item level: \(level) light: \(primaryStat.value)"
     }
-    
     
     var dictionary: EntityDictionary {
         return [:]

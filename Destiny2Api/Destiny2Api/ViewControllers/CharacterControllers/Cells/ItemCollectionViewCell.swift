@@ -16,9 +16,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblQuantity: UILabel!
     @IBOutlet weak var overImage: UIView!
     
-    func setupWith(item: Item) {
+    func setupWith(item: ItemUI) {
         
-        imgItem.kf.setImage(with: item.manifest.urlItemImage)
+        imgItem.kf.setImage(with: item.manifest.display.iconPath)
         
         if item.inventory.quantity > 1 {
             self.lblQuantity.isHidden = false
@@ -31,7 +31,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
             
             self.overImage.isHidden = false
             self.lblLight.isHidden = false
-            self.lblLight.text = "\(instance.primaryStatValue)"
+            self.lblLight.text = "\(instance.primaryStat.value)"
             
         } else {
             self.overImage.isHidden = true

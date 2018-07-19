@@ -33,4 +33,11 @@ class CurrentSession {
         self.token = nil
     }
     
+    var userPlatform: Int {
+        return user?.platform ?? -1
+    }
+    
+    var userMembership: String {
+        return user?.id ?? ""
+    }
 }

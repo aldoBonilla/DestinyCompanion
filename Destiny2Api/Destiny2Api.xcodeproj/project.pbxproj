@@ -11,8 +11,14 @@
 		CA1C187D20F922B60017C16B /* CharacterSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C187C20F922B60017C16B /* CharacterSelectorViewController.swift */; };
 		CA1C187F20F9337C0017C16B /* ItemsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C187E20F9337C0017C16B /* ItemsCollectionViewController.swift */; };
 		CA1C188120F9338F0017C16B /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C188020F9338F0017C16B /* ItemCollectionViewCell.swift */; };
-		CA1C188320FCF38E0017C16B /* ItemBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C188220FCF38E0017C16B /* ItemBucket.swift */; };
 		CA2B5CE620FD594E005A24C5 /* ItemCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B5CE520FD594E005A24C5 /* ItemCollectionHeader.swift */; };
+		CA2B5CE820FE32D8005A24C5 /* UIView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B5CE720FE32D8005A24C5 /* UIView_Extension.swift */; };
+		CA2B5CEA20FE4155005A24C5 /* ItemPerk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B5CE920FE4155005A24C5 /* ItemPerk.swift */; };
+		CA2B5CF020FE66BC005A24C5 /* ItemStatInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B5CEF20FE66BC005A24C5 /* ItemStatInterpolation.swift */; };
+		CA2B5CF220FE7333005A24C5 /* ItemStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B5CF120FE7333005A24C5 /* ItemStat.swift */; };
+		CA2B5CF520FE9B25005A24C5 /* ItemDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B5CF420FE9B25005A24C5 /* ItemDetailTableViewController.swift */; };
+		CA2B5CF820FEA662005A24C5 /* ItemInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B5CF720FEA662005A24C5 /* ItemInfoTableViewCell.swift */; };
+		CA2B5CFC20FEA69F005A24C5 /* ItemStatBarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B5CFB20FEA69F005A24C5 /* ItemStatBarTableViewCell.swift */; };
 		CA351881200FB37A00F5AABC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA351880200FB37A00F5AABC /* AppDelegate.swift */; };
 		CA351883200FB37A00F5AABC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA351882200FB37A00F5AABC /* ViewController.swift */; };
 		CA351888200FB37A00F5AABC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA351887200FB37A00F5AABC /* Assets.xcassets */; };
@@ -23,16 +29,25 @@
 		CA3518A2200FE86700F5AABC /* UserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3518A1200FE86700F5AABC /* UserWorker.swift */; };
 		CA487AFB20F5149F00E8590B /* Dictionary_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA487AFA20F5149F00E8590B /* Dictionary_Extension.swift */; };
 		CA487B0220F9062A00E8590B /* Color_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA487B0120F9062A00E8590B /* Color_Extension.swift */; };
+		CAC1724C20FF7F6B00CAB252 /* EntityTypeManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1724B20FF7F6B00CAB252 /* EntityTypeManifest.swift */; };
+		CAC1724E20FF91A600CAB252 /* ManifestWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1724D20FF91A500CAB252 /* ManifestWorker.swift */; };
+		CAC1725120FF991400CAB252 /* ItemManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1725020FF991400CAB252 /* ItemManifest.swift */; };
+		CAC1725320FF996600CAB252 /* DisplayManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1725220FF996600CAB252 /* DisplayManifest.swift */; };
+		CAC1725520FFA87800CAB252 /* BucketManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1725420FFA87700CAB252 /* BucketManifest.swift */; };
+		CAC1725720FFAB9000CAB252 /* PerkManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1725620FFAB9000CAB252 /* PerkManifest.swift */; };
+		CAC1725B20FFB8B400CAB252 /* ItemManifestStatGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1725A20FFB8B400CAB252 /* ItemManifestStatGroup.swift */; };
+		CAC1725F20FFBBC100CAB252 /* StatGroupManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1725E20FFBBC100CAB252 /* StatGroupManifest.swift */; };
+		CAC1726120FFBCD400CAB252 /* ScaledStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1726020FFBCD400CAB252 /* ScaledStats.swift */; };
+		CAC172632100317700CAB252 /* StatsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC172622100317700CAB252 /* StatsWorker.swift */; };
 		CAD2434320ED881400F68B2E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434220ED881400F68B2E /* Character.swift */; };
 		CAD2434520ED8AFD00F68B2E /* ServiceEntitiesEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434420ED8AFD00F68B2E /* ServiceEntitiesEnums.swift */; };
 		CAD2434920ED98F300F68B2E /* CharacterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434820ED98F300F68B2E /* CharacterTableViewController.swift */; };
 		CAD2434E20EDAAA200F68B2E /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2434D20EDAAA200F68B2E /* CharacterTableViewCell.swift */; };
 		CAD2437620EED6BD00F68B2E /* ManifestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2437520EED6BD00F68B2E /* ManifestEndpoint.swift */; };
-		CAD2437920EEDE9300F68B2E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2437820EEDE9300F68B2E /* Item.swift */; };
+		CAD2437920EEDE9300F68B2E /* ItemDetailUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2437820EEDE9300F68B2E /* ItemDetailUI.swift */; };
 		CAD2437B20F3BCB700F68B2E /* ItemWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2437A20F3BCB700F68B2E /* ItemWorker.swift */; };
 		CAD2437D20F3C21200F68B2E /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2437C20F3C21200F68B2E /* InventoryItem.swift */; };
 		CAD2437F20F3C7C000F68B2E /* ItemInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2437E20F3C7C000F68B2E /* ItemInstance.swift */; };
-		CAD2438120F3D0BB00F68B2E /* ItemManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2438020F3D0BB00F68B2E /* ItemManifest.swift */; };
 		CAD2438320F3ECD900F68B2E /* CharacterInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2438220F3ECD900F68B2E /* CharacterInventoryViewController.swift */; };
 		CAF5A0E220EC2779001F4C30 /* LoginEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0E120EC2779001F4C30 /* LoginEndpoints.swift */; };
 		CAF5A0E920EC2DFF001F4C30 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A0E720EC2DFF001F4C30 /* User.swift */; };
@@ -55,8 +70,14 @@
 		CA1C187C20F922B60017C16B /* CharacterSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectorViewController.swift; sourceTree = "<group>"; };
 		CA1C187E20F9337C0017C16B /* ItemsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCollectionViewController.swift; sourceTree = "<group>"; };
 		CA1C188020F9338F0017C16B /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
-		CA1C188220FCF38E0017C16B /* ItemBucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemBucket.swift; sourceTree = "<group>"; };
 		CA2B5CE520FD594E005A24C5 /* ItemCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionHeader.swift; sourceTree = "<group>"; };
+		CA2B5CE720FE32D8005A24C5 /* UIView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_Extension.swift; sourceTree = "<group>"; };
+		CA2B5CE920FE4155005A24C5 /* ItemPerk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPerk.swift; sourceTree = "<group>"; };
+		CA2B5CEF20FE66BC005A24C5 /* ItemStatInterpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatInterpolation.swift; sourceTree = "<group>"; };
+		CA2B5CF120FE7333005A24C5 /* ItemStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStat.swift; sourceTree = "<group>"; };
+		CA2B5CF420FE9B25005A24C5 /* ItemDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailTableViewController.swift; sourceTree = "<group>"; };
+		CA2B5CF720FEA662005A24C5 /* ItemInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoTableViewCell.swift; sourceTree = "<group>"; };
+		CA2B5CFB20FEA69F005A24C5 /* ItemStatBarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatBarTableViewCell.swift; sourceTree = "<group>"; };
 		CA35187D200FB37A00F5AABC /* Destiny2Api.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Destiny2Api.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA351880200FB37A00F5AABC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA351882200FB37A00F5AABC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,16 +90,25 @@
 		CA3518A1200FE86700F5AABC /* UserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWorker.swift; sourceTree = "<group>"; };
 		CA487AFA20F5149F00E8590B /* Dictionary_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary_Extension.swift; sourceTree = "<group>"; };
 		CA487B0120F9062A00E8590B /* Color_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color_Extension.swift; sourceTree = "<group>"; };
+		CAC1724B20FF7F6B00CAB252 /* EntityTypeManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityTypeManifest.swift; sourceTree = "<group>"; };
+		CAC1724D20FF91A500CAB252 /* ManifestWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestWorker.swift; sourceTree = "<group>"; };
+		CAC1725020FF991400CAB252 /* ItemManifest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemManifest.swift; sourceTree = "<group>"; };
+		CAC1725220FF996600CAB252 /* DisplayManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayManifest.swift; sourceTree = "<group>"; };
+		CAC1725420FFA87700CAB252 /* BucketManifest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BucketManifest.swift; path = Destiny2Api/Models/ServicesModels/Item/BucketManifest.swift; sourceTree = SOURCE_ROOT; };
+		CAC1725620FFAB9000CAB252 /* PerkManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerkManifest.swift; sourceTree = "<group>"; };
+		CAC1725A20FFB8B400CAB252 /* ItemManifestStatGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManifestStatGroup.swift; sourceTree = "<group>"; };
+		CAC1725E20FFBBC100CAB252 /* StatGroupManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatGroupManifest.swift; sourceTree = "<group>"; };
+		CAC1726020FFBCD400CAB252 /* ScaledStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledStats.swift; sourceTree = "<group>"; };
+		CAC172622100317700CAB252 /* StatsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsWorker.swift; sourceTree = "<group>"; };
 		CAD2434220ED881400F68B2E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		CAD2434420ED8AFD00F68B2E /* ServiceEntitiesEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEntitiesEnums.swift; sourceTree = "<group>"; };
 		CAD2434820ED98F300F68B2E /* CharacterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewController.swift; sourceTree = "<group>"; };
 		CAD2434D20EDAAA200F68B2E /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		CAD2437520EED6BD00F68B2E /* ManifestEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestEndpoint.swift; sourceTree = "<group>"; };
-		CAD2437820EEDE9300F68B2E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		CAD2437820EEDE9300F68B2E /* ItemDetailUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailUI.swift; sourceTree = "<group>"; };
 		CAD2437A20F3BCB700F68B2E /* ItemWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemWorker.swift; sourceTree = "<group>"; };
 		CAD2437C20F3C21200F68B2E /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 		CAD2437E20F3C7C000F68B2E /* ItemInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInstance.swift; sourceTree = "<group>"; };
-		CAD2438020F3D0BB00F68B2E /* ItemManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManifest.swift; sourceTree = "<group>"; };
 		CAD2438220F3ECD900F68B2E /* CharacterInventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInventoryViewController.swift; sourceTree = "<group>"; };
 		CAF5A0E120EC2779001F4C30 /* LoginEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndpoints.swift; sourceTree = "<group>"; };
 		CAF5A0E720EC2DFF001F4C30 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -115,6 +145,24 @@
 				D9586CA77A3E680F121FD71A /* Pods-Destiny2Api.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CA2B5CF320FE997B005A24C5 /* ItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CA2B5CF620FEA60A005A24C5 /* Cells */,
+				CA2B5CF420FE9B25005A24C5 /* ItemDetailTableViewController.swift */,
+			);
+			path = ItemDetail;
+			sourceTree = "<group>";
+		};
+		CA2B5CF620FEA60A005A24C5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CA2B5CF720FEA662005A24C5 /* ItemInfoTableViewCell.swift */,
+				CA2B5CFB20FEA69F005A24C5 /* ItemStatBarTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CA351874200FB37A00F5AABC = {
@@ -167,6 +215,7 @@
 			children = (
 				CA351894200FB9FB00F5AABC /* WSAPI.swift */,
 				CA351896200FBED600F5AABC /* EndpointConfiguration.swift */,
+				CAC1724B20FF7F6B00CAB252 /* EntityTypeManifest.swift */,
 				CAF5A0E120EC2779001F4C30 /* LoginEndpoints.swift */,
 				CA351898200FD76B00F5AABC /* UserEndpoints.swift */,
 				CAD2437520EED6BD00F68B2E /* ManifestEndpoint.swift */,
@@ -191,6 +240,8 @@
 				CAF5A0EE20EC35EF001F4C30 /* LoginWorker.swift */,
 				CA3518A1200FE86700F5AABC /* UserWorker.swift */,
 				CAD2437A20F3BCB700F68B2E /* ItemWorker.swift */,
+				CAC1724D20FF91A500CAB252 /* ManifestWorker.swift */,
+				CAC172622100317700CAB252 /* StatsWorker.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -208,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				CA487B0120F9062A00E8590B /* Color_Extension.swift */,
+				CA2B5CE720FE32D8005A24C5 /* UIView_Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -218,6 +270,20 @@
 				CA487AFA20F5149F00E8590B /* Dictionary_Extension.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		CAC1724F20FF96BC00CAB252 /* Manifest */ = {
+			isa = PBXGroup;
+			children = (
+				CAC1725220FF996600CAB252 /* DisplayManifest.swift */,
+				CAC1725020FF991400CAB252 /* ItemManifest.swift */,
+				CAC1725A20FFB8B400CAB252 /* ItemManifestStatGroup.swift */,
+				CAC1725E20FFBBC100CAB252 /* StatGroupManifest.swift */,
+				CAC1726020FFBCD400CAB252 /* ScaledStats.swift */,
+				CAC1725420FFA87700CAB252 /* BucketManifest.swift */,
+				CAC1725620FFAB9000CAB252 /* PerkManifest.swift */,
+			);
+			path = Manifest;
 			sourceTree = "<group>";
 		};
 		CAD2434120ED880800F68B2E /* Character */ = {
@@ -241,11 +307,12 @@
 		CAD2437720EEDE8100F68B2E /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				CAD2437820EEDE9300F68B2E /* Item.swift */,
+				CAD2437820EEDE9300F68B2E /* ItemDetailUI.swift */,
 				CAD2437C20F3C21200F68B2E /* InventoryItem.swift */,
 				CAD2437E20F3C7C000F68B2E /* ItemInstance.swift */,
-				CAD2438020F3D0BB00F68B2E /* ItemManifest.swift */,
-				CA1C188220FCF38E0017C16B /* ItemBucket.swift */,
+				CA2B5CE920FE4155005A24C5 /* ItemPerk.swift */,
+				CA2B5CF120FE7333005A24C5 /* ItemStat.swift */,
+				CA2B5CEF20FE66BC005A24C5 /* ItemStatInterpolation.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -274,6 +341,7 @@
 				CAF5A0E820EC2DFF001F4C30 /* Login */,
 				CAD2434120ED880800F68B2E /* Character */,
 				CAD2437720EEDE8100F68B2E /* Item */,
+				CAC1724F20FF96BC00CAB252 /* Manifest */,
 			);
 			path = ServicesModels;
 			sourceTree = "<group>";
@@ -362,6 +430,7 @@
 				CAD2438220F3ECD900F68B2E /* CharacterInventoryViewController.swift */,
 				CA1C187C20F922B60017C16B /* CharacterSelectorViewController.swift */,
 				CA1C187E20F9337C0017C16B /* ItemsCollectionViewController.swift */,
+				CA2B5CF320FE997B005A24C5 /* ItemDetail */,
 			);
 			path = CharacterControllers;
 			sourceTree = "<group>";
@@ -518,29 +587,44 @@
 				CAD2434920ED98F300F68B2E /* CharacterTableViewController.swift in Sources */,
 				CA487AFB20F5149F00E8590B /* Dictionary_Extension.swift in Sources */,
 				CAF5A0F220EC3902001F4C30 /* RealmApi.swift in Sources */,
+				CAC1725B20FFB8B400CAB252 /* ItemManifestStatGroup.swift in Sources */,
 				CAD2437D20F3C21200F68B2E /* InventoryItem.swift in Sources */,
+				CA2B5CEA20FE4155005A24C5 /* ItemPerk.swift in Sources */,
+				CA2B5CF020FE66BC005A24C5 /* ItemStatInterpolation.swift in Sources */,
+				CAC1725520FFA87800CAB252 /* BucketManifest.swift in Sources */,
 				CAD2434520ED8AFD00F68B2E /* ServiceEntitiesEnums.swift in Sources */,
 				CAF5A0EB20EC2E0C001F4C30 /* Token.swift in Sources */,
+				CAC172632100317700CAB252 /* StatsWorker.swift in Sources */,
+				CAC1725320FF996600CAB252 /* DisplayManifest.swift in Sources */,
 				CA351881200FB37A00F5AABC /* AppDelegate.swift in Sources */,
-				CAD2437920EEDE9300F68B2E /* Item.swift in Sources */,
+				CAD2437920EEDE9300F68B2E /* ItemDetailUI.swift in Sources */,
+				CA2B5CF820FEA662005A24C5 /* ItemInfoTableViewCell.swift in Sources */,
+				CAC1725F20FFBBC100CAB252 /* StatGroupManifest.swift in Sources */,
 				CA3518A0200FE58800F5AABC /* EntityProtocol.swift in Sources */,
+				CA2B5CFC20FEA69F005A24C5 /* ItemStatBarTableViewCell.swift in Sources */,
+				CAC1724C20FF7F6B00CAB252 /* EntityTypeManifest.swift in Sources */,
 				CAD2434E20EDAAA200F68B2E /* CharacterTableViewCell.swift in Sources */,
 				CAD2437F20F3C7C000F68B2E /* ItemInstance.swift in Sources */,
 				CA1C188120F9338F0017C16B /* ItemCollectionViewCell.swift in Sources */,
-				CAD2438120F3D0BB00F68B2E /* ItemManifest.swift in Sources */,
+				CAC1725120FF991400CAB252 /* ItemManifest.swift in Sources */,
 				CAF5A10920ED4B40001F4C30 /* ClanManagmentRootViewController.swift in Sources */,
 				CAF5A0ED20EC2E2B001F4C30 /* Token_Persistance.swift in Sources */,
 				CAD2437620EED6BD00F68B2E /* ManifestEndpoint.swift in Sources */,
+				CAC1725720FFAB9000CAB252 /* PerkManifest.swift in Sources */,
 				CA3518A2200FE86700F5AABC /* UserWorker.swift in Sources */,
 				CAF5A0E220EC2779001F4C30 /* LoginEndpoints.swift in Sources */,
 				CAD2437B20F3BCB700F68B2E /* ItemWorker.swift in Sources */,
 				CAD2434320ED881400F68B2E /* Character.swift in Sources */,
 				CA1C187D20F922B60017C16B /* CharacterSelectorViewController.swift in Sources */,
+				CA2B5CE820FE32D8005A24C5 /* UIView_Extension.swift in Sources */,
 				CA2B5CE620FD594E005A24C5 /* ItemCollectionHeader.swift in Sources */,
 				CAF5A0E920EC2DFF001F4C30 /* User.swift in Sources */,
 				CA1C187F20F9337C0017C16B /* ItemsCollectionViewController.swift in Sources */,
-				CA1C188320FCF38E0017C16B /* ItemBucket.swift in Sources */,
+				CAC1724E20FF91A600CAB252 /* ManifestWorker.swift in Sources */,
+				CA2B5CF520FE9B25005A24C5 /* ItemDetailTableViewController.swift in Sources */,
+				CAC1726120FFBCD400CAB252 /* ScaledStats.swift in Sources */,
 				CA351899200FD76B00F5AABC /* UserEndpoints.swift in Sources */,
+				CA2B5CF220FE7333005A24C5 /* ItemStat.swift in Sources */,
 				CAF5A0F520EC6D8A001F4C30 /* CurrentSession.swift in Sources */,
 				CA351895200FB9FC00F5AABC /* WSAPI.swift in Sources */,
 				CA351897200FBED600F5AABC /* EndpointConfiguration.swift in Sources */,

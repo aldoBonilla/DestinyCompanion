@@ -10,7 +10,7 @@ import Foundation
 
 enum ManifestMethods: EndpointConfiguration {
     
-    case getManifestFor(infoType: UserInfoType, hashId: String)
+    case getManifestFor(entityType: EntityTypeManifest, hashId: String)
     
     var serverURL: String {
         return Endpoint().serverURL
@@ -18,7 +18,7 @@ enum ManifestMethods: EndpointConfiguration {
     
     var path: String {
         switch self {
-        case .getManifestFor(let infoType, let hashId): return "/Destiny2/Manifest/\(infoType.manifestEntity)\(hashId)"
+        case .getManifestFor(let entityType, let hashId): return "/Destiny2/Manifest/\(entityType.rawValue)\(hashId)"
         }
     }
     
@@ -46,9 +46,9 @@ enum ManifestMethods: EndpointConfiguration {
 
 struct ManifestEndpoints {
     
-    static func getContent(contentType: UserInfoType, hash: String, completion: @escaping ((_ userInfo: EntityDictionary?,_ error: NSError?) -> Void )) {
+    static func getManifestFor(_ entityType: EntityTypeManifest, hash: String, completion: @escaping ((_ userInfo: EntityDictionary?,_ error: NSError?) -> Void )) {
         
-        let getInfo = ManifestMethods.getManifestFor(infoType: contentType, hashId: hash)
+        let getInfo = ManifestMethods.getManifestFor(entityType: entityType, hashId: hash)
         
         WSAPI.shared.callService(url: getInfo.fullPath, method: getInfo.method, parameters: getInfo.parameters, param_Encoding: getInfo.encoding?.parameterEncoding, headers: getInfo.headers) { response, error in
             if error != nil {

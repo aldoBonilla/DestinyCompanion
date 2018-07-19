@@ -15,16 +15,19 @@ class CharacterInventoryViewController: UIViewController {
     
     var characters: [Character]!
     var characterSelected: Character!
+    var currentCharacterItems = [ItemUI]()
     var itemCVC: ItemsCollectionViewController?
+    var currentCategory: ItemUICategory = .weapon
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadCharacterData()
         // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadCharacterData()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,10 +43,14 @@ class CharacterInventoryViewController: UIViewController {
     }
     
     private func getFullItemsDescription() {
+        self.view.lock()
         
-        ItemWorker.getCharacterFullItemDescriptions(self.characterSelected) {
+        ItemWorker.getItemsFor(characterId: characterSelected.id) { items in
+            self.currentCharacterItems = items
+            let categoryItems = ItemWorker.orderBucketsFor(category: self.currentCategory, withItems: items)
             DispatchQueue.main.async {
-                self.itemCVC?.reloadInventorieFor(character: self.characterSelected)
+                self.view.unlock()
+                self.itemCVC?.reloadInventorieWithDisplayData(displayData: categoryItems)
             }
         }
     }
@@ -52,7 +59,9 @@ class CharacterInventoryViewController: UIViewController {
         guard let categorySelected = ItemUICategory(rawValue: sender.selectedSegmentIndex) else {
             return
         }
-        self.itemCVC?.reloadInventorieFor(category: categorySelected)
+        currentCategory = categorySelected
+        let categoryItems = ItemWorker.orderBucketsFor(category: self.currentCategory, withItems: currentCharacterItems)
+        self.itemCVC?.reloadInventorieWithDisplayData(displayData: categoryItems)
     }
     
     // MARK: - Navigation
@@ -69,6 +78,11 @@ class CharacterInventoryViewController: UIViewController {
         if let characterItemCVC = segue.destination as? ItemsCollectionViewController {
             self.itemCVC = characterItemCVC
             self.itemCVC?.characterSelected = characterSelected
+            self.itemCVC?.delegate = self
+        }
+        
+        if let itemDetail = segue.destination as? ItemDetailTableViewController, let item = sender as? ItemUI {
+            itemDetail.itemSelected = item
         }
     }
 }
@@ -78,5 +92,12 @@ extension CharacterInventoryViewController: CharacterSelectorDelegate {
     func changedTo(character: Character) {
         self.characterSelected = character
         loadCharacterData()
+    }
+}
+
+extension CharacterInventoryViewController: ItemsCVCDelegate {
+    
+    func showDetailOf(item: ItemUI) {
+        self.performSegue(withIdentifier: "ItemDetail", sender: item)
     }
 }

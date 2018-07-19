@@ -10,8 +10,8 @@ import Foundation
 
 struct InventoryItem: EntityProtocol, CustomStringConvertible, Hashable {
     
-    let itemHash: Int
-    let itemInstance: String?
+    let hash: Int
+    let instance: String?
     let quantity: Int
     let location: ItemLocation
     let lockable: Bool
@@ -29,8 +29,8 @@ struct InventoryItem: EntityProtocol, CustomStringConvertible, Hashable {
                 throw EntityNetworkingError.entityCantBeCreated(reason: "Key value missing")
         }
         
-        self.itemHash = hash
-        self.itemInstance = dictionary["itemInstanceId"] as? String
+        self.hash = hash
+        self.instance = dictionary["itemInstanceId"] as? String
         self.quantity = quantity
         self.location = ItemLocation(rawValue: locationInt) ?? .unknown
         self.lockable = lockable
@@ -39,11 +39,11 @@ struct InventoryItem: EntityProtocol, CustomStringConvertible, Hashable {
     }
     
     var description: String {
-        return "Item hash: \(itemHash)"
+        return "Item hash: \(hash), instance: \(instance ?? "")"
     }
     
     var hashValue: Int {
-        return itemHash
+        return hash
     }
     
     static func == (lhs: InventoryItem, rhs: InventoryItem) -> Bool {
