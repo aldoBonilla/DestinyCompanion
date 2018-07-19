@@ -29,7 +29,7 @@ class ItemWorker {
         var inventoryItems = [ItemUI]()
         
         let group = DispatchGroup()
-        group.enter()
+//        group.enter()
 //        UserWorker.getInvetoryItemsFrom(location: .equipment, forCharacter: characterId) { items, error in
 //            if items != nil {
 //                getFullItems(items!) { uiItems in
@@ -40,8 +40,8 @@ class ItemWorker {
 //                group.leave()
 //            }
 //        }
-//
-//        group.enter()
+
+        group.enter()
         UserWorker.getInvetoryItemsFrom(location: .inventory, forCharacter: characterId) { items, error in
             if items != nil {
                 getFullItems(items!) { uiItems in
@@ -52,7 +52,7 @@ class ItemWorker {
                 group.leave()
             }
         }
-        
+
         group.notify(queue: .main) {
             let totalItems = equipementItems + inventoryItems
             completion(totalItems)
@@ -181,4 +181,9 @@ class ItemWorker {
             }
         }
     }
+    
+    //Probitional Method for inventories
+    
+    
+    
 }

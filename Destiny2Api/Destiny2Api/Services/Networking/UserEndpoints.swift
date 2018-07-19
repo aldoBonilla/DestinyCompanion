@@ -51,7 +51,7 @@ enum UserMethods: EndpointConfiguration {
         case .currentUserInfo: return [headerApiDestiny: destinyApiKey, "Authorization": "Bearer \(CurrentSession.shared.token!.access_token)"]
         case .infoRequest(_, _, let requestType, _):
             if requestType.privacyLvl == 2 {
-                return [headerApiDestiny: destinyApiKey, "Authorization": "Bearer \(CurrentSession.shared.token!.access_token)" ]
+                return ["Authorization": "Bearer \(CurrentSession.shared.token!.access_token)", headerApiDestiny: destinyApiKey]
             }
             else {return [headerApiDestiny: destinyApiKey] }
         }
@@ -112,6 +112,32 @@ struct UserEndpoints {
                 completion(requestedData, nil)
             }
         }
+    }
+    
+    static func getCharacterInventories(_ id: String, _ completion: @escaping((_ itemsDictionary: EntityDictionary?, _ error: NSError?) -> Void )) {
+        let headers = [
+            headerApiDestiny: destinyApiKey,
+            "Authorization": "Bearer \(CurrentSession.shared.token!.access_token)"
+        ]
         
+        let request = NSMutableURLRequest(url:( URL(string: "\(Endpoint().serverURL)/Destiny2/\(CurrentSession.shared.userPlatform)/Profile/\(CurrentSession.shared.userMembership)/character/\(id)/?components=201"))!)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest) { data, response, error in
+            if error != nil {
+                print (error)
+                completion(nil, NSError(domain: "LibraryApi", code: -3, userInfo: nil))
+            } else if data != nil {
+                guard let responseInfo = try? JSONSerialization.jsonObject(with: data!, options: []) as! EntityDictionary,
+                    let responseData = responseInfo["Response"] as? EntityDictionary,
+                    let requestedDict = responseData["inventory"] as? EntityDictionary,
+                    let requestedData = requestedDict["data"] as? EntityDictionary else {
+                        completion(nil, NSError(domain: "LibraryApi", code: -3, userInfo: nil))
+                        return
+                }
+            }
+        }
+        dataTask.resume()
     }
 }
