@@ -114,6 +114,7 @@ struct UserEndpoints {
         }
     }
     
+    //Probitional Method for inventories
     static func getCharacterInventories(_ id: String, _ completion: @escaping((_ itemsDictionary: EntityDictionary?, _ error: NSError?) -> Void )) {
         let headers = [
             headerApiDestiny: destinyApiKey,
@@ -126,7 +127,7 @@ struct UserEndpoints {
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest) { data, response, error in
             if error != nil {
-                print (error)
+                print (error!)
                 completion(nil, NSError(domain: "LibraryApi", code: -3, userInfo: nil))
             } else if data != nil {
                 guard let responseInfo = try? JSONSerialization.jsonObject(with: data!, options: []) as! EntityDictionary,
@@ -136,6 +137,7 @@ struct UserEndpoints {
                         completion(nil, NSError(domain: "LibraryApi", code: -3, userInfo: nil))
                         return
                 }
+                completion(requestedData, nil)
             }
         }
         dataTask.resume()

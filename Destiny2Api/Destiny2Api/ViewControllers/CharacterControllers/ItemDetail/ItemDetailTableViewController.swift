@@ -79,7 +79,11 @@ class ItemDetailTableViewController: UITableViewController {
             cell = setupInfoCell(tableView, cellForRowAt: indexPath)
         case 1:
             let thisStat = stats[indexPath.row]
-            cell = setupStatCell(tableView, cellForRowAt: indexPath, stat: thisStat)
+            if thisStat.isNumeric == false {
+                cell = setupStatBarCell(tableView, cellForRowAt: indexPath, stat: thisStat)
+            } else {
+                cell = setupStatCell(tableView, cellForRowAt: indexPath, stat: thisStat)
+            }
         case 2:
             let thisPerk = perks[indexPath.row]
             cell = setupPerkCell(tableView, cellForRowAt: indexPath, perk: thisPerk)

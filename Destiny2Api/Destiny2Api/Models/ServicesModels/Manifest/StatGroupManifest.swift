@@ -15,7 +15,7 @@ struct StatGroupManifest: EntityProtocol, CustomStringConvertible, Hashable {
     let scaledStats: [ScaledStats]
     
     init(dictionary: EntityDictionary) throws {
-        guard let hash = dictionary["statHash"] as? Int,
+        guard let hash = dictionary["hash"] as? Int,
               let uiPosition = dictionary["uiPosition"] as? Int,
               let scaledStatsDicts = dictionary["scaledStats"] as? [EntityDictionary] else {
                 throw EntityNetworkingError.entityCantBeCreated(reason: "Key Value Missing")

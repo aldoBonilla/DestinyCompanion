@@ -29,20 +29,20 @@ class ItemWorker {
         var inventoryItems = [ItemUI]()
         
         let group = DispatchGroup()
-//        group.enter()
-//        UserWorker.getInvetoryItemsFrom(location: .equipment, forCharacter: characterId) { items, error in
-//            if items != nil {
-//                getFullItems(items!) { uiItems in
-//                    equipementItems = uiItems
-//                    group.leave()
-//                }
-//            } else {
-//                group.leave()
-//            }
-//        }
+        group.enter()
+        UserWorker.getInvetoryItemsFrom(location: .equipment, forCharacter: characterId) { items, error in
+            if items != nil {
+                getFullItems(items!) { uiItems in
+                    equipementItems = uiItems
+                    group.leave()
+                }
+            } else {
+                group.leave()
+            }
+        }
 
         group.enter()
-        UserWorker.getInvetoryItemsFrom(location: .inventory, forCharacter: characterId) { items, error in
+        ItemWorker.getInventoryForCharacter(character: characterId) { items, error in
             if items != nil {
                 getFullItems(items!) { uiItems in
                     inventoryItems = uiItems
@@ -182,8 +182,15 @@ class ItemWorker {
         }
     }
     
-    //Probitional Method for inventories
-    
-    
-    
+    static func getInventoryForCharacter( character: String, _ completion: @escaping((_ inventoryItems: [InventoryItem]?, _ error: NSError?) -> Void)) {
+        UserEndpoints.getCharacterInventories(character) { response, error in
+            if let responseDict = response,
+                let itemDicts = responseDict["items"] as? [EntityDictionary] {
+                let items: [InventoryItem] = InventoryItem.initEntities(dictionaries: itemDicts)
+                completion(items, nil)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
 }

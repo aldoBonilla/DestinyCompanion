@@ -53,13 +53,16 @@ struct StatsWorker {
                         }
                     }
                 }
+                dispatchGroup.notify(queue: .main) {
+                    completion(statsUI)
+                }
             } else {
                 completion(statsUI)
             }
         }
     }
     
-    static func getStatUI(_ itemStat: ItemStat, numeric: Bool, _ completion: @escaping((_ perk: StatUI?, _ error: NSError?) -> Void )) {
+    static func getStatUI(_ itemStat: ItemStat, numeric: Bool, _ completion: @escaping((_ stat: StatUI?, _ error: NSError?) -> Void )) {
         
         ManifestWorker.getManifestDisplayProperties(type: .stat, hash: itemStat.hash) { displayProp, error in
             if displayProp != nil {
